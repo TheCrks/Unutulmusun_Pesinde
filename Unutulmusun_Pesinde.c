@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <time.h>
 #include <locale.h>
-#define developerMode 1
+#define developerMode 0
 
 
 void Menu();
@@ -84,8 +84,8 @@ struct player{
 
 
 
-char *AttackItem[30]={"Basit Kılıç","Basit Balta","Basit Mızırak","İyi Kılıç","İyi Balta","İyi Mızırak","Ork Kılıçı","Ork Baltası","Ork Mızırağı","Elf Kılıcı","Elf Baltası","Elf Mızırağı","Cüce Kılıcı","Cüce Baltası","Cüce Mızırağı","Büyük Kılıc","Büyük Balta","Büyük Mızırak","Küçük Kılıc","Küçük Balta","Küçük Mızırak","Çelik Kılıc","Çelik Balta","Çelik Mızırak","Kılıc","Balta","Mızırak","Özel Kılıc","Özel Balta","Özel Mızırak",};
-char *DefansItem[10]={"Basit Zırh","İyi Zırh","Çelik Zırh","Ork Zırhı","Elf Zırhı","Cüce işi Zırh","Kalın Zırh","İnce Zırh","Taş Zırh","Zincir Zırh"};
+char *AttackItem[30]={"Basit KÃ½lÃ½Ã§","Basit Balta","Basit MÃ½zÃ½rak","Ãyi KÃ½lÃ½Ã§","Ãyi Balta","Ãyi MÃ½zÃ½rak","Ork KÃ½lÃ½Ã§Ã½","Ork BaltasÃ½","Ork MÃ½zÃ½raÃ°Ã½","Elf KÃ½lÃ½cÃ½","Elf BaltasÃ½","Elf MÃ½zÃ½raÃ°Ã½","CÃ¼ce KÃ½lÃ½cÃ½","CÃ¼ce BaltasÃ½","CÃ¼ce MÃ½zÃ½raÃ°Ã½","BÃ¼yÃ¼k KÃ½lÃ½c","BÃ¼yÃ¼k Balta","BÃ¼yÃ¼k MÃ½zÃ½rak","KÃ¼Ã§Ã¼k KÃ½lÃ½c","KÃ¼Ã§Ã¼k Balta","KÃ¼Ã§Ã¼k MÃ½zÃ½rak","Ã‡elik KÃ½lÃ½c","Ã‡elik Balta","Ã‡elik MÃ½zÃ½rak","KÃ½lÃ½c","Balta","MÃ½zÃ½rak","Ã–zel KÃ½lÃ½c","Ã–zel Balta","Ã–zel MÃ½zÃ½rak",};
+char *DefansItem[10]={"Basit ZÃ½rh","Ãyi ZÃ½rh","Ã‡elik ZÃ½rh","Ork ZÃ½rhÃ½","Elf ZÃ½rhÃ½","CÃ¼ce iÃ¾i ZÃ½rh","KalÃ½n ZÃ½rh","Ãnce ZÃ½rh","TaÃ¾ ZÃ½rh","Zincir ZÃ½rh"};
 
 
 int main() {
@@ -99,7 +99,7 @@ for(i=0;i<10;i++){
 for(i=0;i<5;i++){
 player.CONS[i]=DefaultC;	
 }
-	strcpy(player.CONS[0].ADI,"İlaç");	strcpy(player.CONS[1].ADI,"Elma");	strcpy(player.CONS[2].ADI,"Bandaj");  strcpy(player.CONS[3].ADI,"Portakal");	strcpy(player.CONS[4].ADI,"Mantar");
+	strcpy(player.CONS[0].ADI,"ÃlaÃ§");	strcpy(player.CONS[1].ADI,"Elma");	strcpy(player.CONS[2].ADI,"Bandaj");  strcpy(player.CONS[3].ADI,"Portakal");	strcpy(player.CONS[4].ADI,"Mantar");
 	player.CONS[0].HEL=5;		player.CONS[1].HEL=1;		player.CONS[2].HEL=4;		player.CONS[3].HEL=3;		player.CONS[4].HEL=2;
 	srand(time(NULL)); 
 	HWND hWnd = GetConsoleWindow();
@@ -140,8 +140,8 @@ void git(int s,int k){
 void EkranTaslak(){
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi); 
-	satir = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;  // Concole ekran yüksekliği alınıyor  63
-	kolon = csbi.srWindow.Right - csbi.srWindow.Left + 1; // Console ekran genişliği alınıyor 237
+	satir = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;  // Concole ekran yÃ¼ksekliÃ°i alÃ½nÃ½yor  63
+	kolon = csbi.srWindow.Right - csbi.srWindow.Left + 1; // Console ekran geniÃ¾liÃ°i alÃ½nÃ½yor 237
 	short i,j;
 	for(i=0;i<satir-1;i++){
 		for(j=0;j<kolon;j++){
@@ -163,9 +163,9 @@ void YaziYaz(short x, short y, char *adres, short byt){
 void Yazilar(){
 
   	char bilgi[]="HUBC";
-  	char baslik[]="Unutulmuşun Peşinde";
-  	char menu1[]="B A Ş L A";
-  	char menu2[]="Ç I K I Ş";
+  	char baslik[]="UnutulmuÃ¾un PeÃ¾inde";
+  	char menu1[]="B A Ã L A";
+  	char menu2[]="Ã‡ I K I Ã";
 
   	YaziYaz(satir-3,(kolon-4-strlen(bilgi))/2,bilgi,strlen(bilgi));
   	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
@@ -176,14 +176,14 @@ void Isaretle(short sec){
 	int i, konum[]={19,22,25,28,31,34,37,40};
 	for(i=0;i<sizeof(konum)/sizeof(int);i++){
 		if((i+1)==sec){
-			git(konum[i],(kolon-4-strlen("B A Ş L A"))/2-7);
+			git(konum[i],(kolon-4-strlen("B A Ã L A"))/2-7);
 			printf("%c%c%c",16,16,16);
-			git(konum[i],(kolon-4-strlen("B A Ş L A"))/2+13);
+			git(konum[i],(kolon-4-strlen("B A Ã L A"))/2+13);
 			printf("%c%c%c",17,17,17);
 		}else{
-			git(konum[i],(kolon-4-strlen("B A Ş L A"))/2-7);
+			git(konum[i],(kolon-4-strlen("B A Ã L A"))/2-7);
 			printf("   ");
-			git(konum[i],(kolon-4-strlen("B A Ş L A"))/2+13);
+			git(konum[i],(kolon-4-strlen("B A Ã L A"))/2+13);
 			printf("   ");
 		}
 	}
@@ -202,10 +202,10 @@ void Menu(){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -225,8 +225,8 @@ void Menu(){
 }
 void CreationYazilar1(){
 	char bilgi[]="HUBC";
-  	char baslik[]="S I N I F	S E Ç";
-  	char menu1[]="SAVAŞÇI";
+  	char baslik[]="S I N I F	S E Ã‡";
+  	char menu1[]="SAVAÃÃ‡I";
   	char menu2[]="TANK";
   	char menu3[]="AVCI";
 
@@ -239,11 +239,11 @@ void CreationYazilar1(){
 }
 void CreationYazilar2(){
 	char bilgi[]="HUBC";
-  	char baslik[]="I R K	S E Ç";
-  	char menu1[]="İNSAN";
+  	char baslik[]="I R K	S E Ã‡";
+  	char menu1[]="ÃNSAN";
   	char menu2[]="ORK";
   	char menu3[]="ELF";
-  	char menu4[]="CÜCE";
+  	char menu4[]="CÃœCE";
 
   	YaziYaz(satir-3,(kolon-4-strlen(bilgi))/2,bilgi,strlen(bilgi));
   	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
@@ -255,9 +255,9 @@ void CreationYazilar2(){
 }
 void CreationYazilar3(){
 	char bilgi[]="HUBC";
-  	char baslik[]="AİLEN";
-  	char menu1[]="ASKERLERDİ";
-  	char menu2[]="DEMİRCİLERDİ";
+  	char baslik[]="AÃLEN";
+  	char menu1[]="ASKERLERDÃ";
+  	char menu2[]="DEMÃRCÃLERDÃ";
   	char menu3[]="MUHAFIZLARDI";
 
   	YaziYaz(satir-3,(kolon-4-strlen(bilgi))/2,bilgi,strlen(bilgi));
@@ -292,10 +292,10 @@ void Creation(void x(),int max){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -336,10 +336,10 @@ void Creation1(void x(),int max){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -378,10 +378,10 @@ void Accept(void x(),int max){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -411,20 +411,20 @@ void CharacterCreation(){
 	Creation1(CreationYazilar3,4);
 	Temizle();
 	git(20,33);
-	printf("İ S M İ N");
+	printf("Ã S M Ã N");
 	Isaretle(3);
 	git(25,35);
 	scanf("%s",player.AD);
 	Temizle();
 	EkranTaslak();
 	git(5,5);
-	printf("%s'in Değerleri:",player.AD);
+	printf("%s'in DeÃ°erleri:",player.AD);
 	git(7,5);
-	printf("Güc:%d",player.ATK);
+	printf("GÃ¼c:%d",player.ATK);
 	git(8,5);
 	printf("Defans:%d",player.DEF);
 	git(9,5);
-	printf("Altın:%d",player.GLD);
+	printf("AltÃ½n:%d",player.GLD);
 	Accept(AcceptYazilar,3);	
 };
 
@@ -452,7 +452,7 @@ void devMenu(){
 	git(17,6);printf("Sehir Menu");Sleep(60);
 	git(18,6);printf("Han Menu");Sleep(60);
 	git(19,6);printf("Savas");Sleep(60);
-	git(20,6);printf("Çıkış");
+	git(20,6);printf("Ã‡Ã½kÃ½Ã¾");
 	durum=T; int secim=1, max=9; 
 		while(durum){
 			if(kbhit()){
@@ -493,18 +493,18 @@ void devMenu(){
 					}
 					else if(secim==5){
 						Temizle();
-						git(22,5);printf("Sehir Menu açılıyor");Sleep(60);
+						git(22,5);printf("Sehir Menu aÃ§Ã½lÃ½yor");Sleep(60);
 						SehirMenu(SehirMenuYazilar,6);
 					}
 					else if(secim==6){
 						Temizle();
-						git(22,5);printf("Han Menu açılıyor");Sleep(60);
+						git(22,5);printf("Han Menu aÃ§Ã½lÃ½yor");Sleep(60);
 						HanciMenu();
 					}
 					else if(secim==7){
 						struct Enemy a; char isim[7]="Hacker";
 						Temizle();
-						git(22,5);printf("Savaş açılıyor");Sleep(60);
+						git(22,5);printf("SavaÃ¾ aÃ§Ã½lÃ½yor");Sleep(60);
 						Savas(a,isim);
 					}
 					else if(secim==8){
@@ -535,7 +535,7 @@ void Temizle(){
 }
 void SavasYazilar(){
 	char bilgi[]="HUBC";
-  	char menu1[]="Saldır";
+  	char menu1[]="SaldÃ½r";
   	char menu2[]="Envanter";
 
   	YaziYaz(satir-3,(kolon-4-strlen(bilgi))/2,bilgi,strlen(bilgi));
@@ -567,7 +567,7 @@ SavasMenu(x);
 void HealMenu(){
 			Temizle();
 				int i,secim=0;
-	git(5,5);printf("Tüketilebilir Eşyalar: ");
+	git(5,5);printf("TÃ¼ketilebilir EÃ¾yalar: ");
 	for(i=0;i<5;i++){
 		git(i+8,5);printf(" %s ",player.CONS[i].ADI);git(i+8,25);printf("(%d Adet)",player.CONS[i].ADT);
 	}
@@ -578,14 +578,14 @@ void HealMenu(){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						git(secim+9,5);printf(" "); 					
 				secim=(secim==5)?0:secim;
 				secim=(secim==-1)?4:secim;	
 						git(secim+8,5);printf(">");									
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++; 
 						git(secim+7,5);printf(" ");						
 				secim=(secim==5)?0:secim;
@@ -599,9 +599,9 @@ void HealMenu(){
 						if(player.CONS[0].ADT>=1){
 							player.CONS[0].ADT-=1;
 							player.CAN+=player.CONS[0].HEL;
-							git(15,5);printf("%d kadar iyileştin",player.CONS[0].HEL);Sleep(1000);}							
+							git(15,5);printf("%d kadar iyileÃ¾tin",player.CONS[0].HEL);Sleep(1000);}							
 						else{
-							git(15,5);printf("Yetersiz Eşya");Sleep(1000);
+							git(15,5);printf("Yetersiz EÃ¾ya");Sleep(1000);
 								}	
 							durum=F;	
 					break;
@@ -609,9 +609,9 @@ void HealMenu(){
 						if(player.CONS[1].ADT>=1){
 							player.CONS[1].ADT-=1;
 							player.CAN+=player.CONS[1].HEL;
-							git(15,5);printf("%d kadar iyileştin",player.CONS[1].HEL);Sleep(1000);}							
+							git(15,5);printf("%d kadar iyileÃ¾tin",player.CONS[1].HEL);Sleep(1000);}							
 						else{
-							git(15,5);printf("Yetersiz Eşya");Sleep(1000);
+							git(15,5);printf("Yetersiz EÃ¾ya");Sleep(1000);
 								}	
 							durum=F;
 					break;						
@@ -619,9 +619,9 @@ void HealMenu(){
 						if(player.CONS[2].ADT>=1){
 							player.CONS[2].ADT-=1;
 							player.CAN+=player.CONS[2].HEL;
-							git(15,5);printf("%d kadar iyileştin",player.CONS[2].HEL);Sleep(1000);}							
+							git(15,5);printf("%d kadar iyileÃ¾tin",player.CONS[2].HEL);Sleep(1000);}							
 						else{
-							git(15,5);printf("Yetersiz Eşya");Sleep(1000);
+							git(15,5);printf("Yetersiz EÃ¾ya");Sleep(1000);
 								}	
 							durum=F;
 					break;
@@ -629,9 +629,9 @@ void HealMenu(){
 						if(player.CONS[3].ADT>=1){
 							player.CONS[3].ADT-=1;
 							player.CAN+=player.CONS[3].HEL;
-							git(15,5);printf("%d kadar iyileştin",player.CONS[3].HEL);Sleep(1000);}
+							git(15,5);printf("%d kadar iyileÃ¾tin",player.CONS[3].HEL);Sleep(1000);}
 						else{
-							git(15,5);printf("Yetersiz Eşya");Sleep(1000);
+							git(15,5);printf("Yetersiz EÃ¾ya");Sleep(1000);
 								}	
 							durum=F;
 					break;							
@@ -639,9 +639,9 @@ void HealMenu(){
 						if(player.CONS[4].ADT>=1){
 							player.CONS[4].ADT-=1;
 							player.CAN+=player.CONS[4].HEL;
-							git(15,5);printf("%d kadar iyileştin",player.CONS[4].HEL);Sleep(1000);	}						
+							git(15,5);printf("%d kadar iyileÃ¾tin",player.CONS[4].HEL);Sleep(1000);	}						
 						else{
-							git(15,5);printf("Yetersiz Eşya");Sleep(1000);
+							git(15,5);printf("Yetersiz EÃ¾ya");Sleep(1000);
 								}	
 							durum=F;
 					break;																																																									
@@ -674,10 +674,10 @@ void SavasMenu(struct Enemy enemy){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -689,26 +689,26 @@ void SavasMenu(struct Enemy enemy){
 					enemy.CAN-=player.AITM.IATK+player.ATK-(enemy.DEF/100);enemy.CAN=(enemy.CAN<0)?0:enemy.CAN;
 					git(15,5);printf("%d hasar verdin            ",yedek-enemy.CAN);Sleep(1000);
 					if(enemy.CAN==0) break;
-					git(15,5);printf("Düşman Saldirdi            ");Sleep(1000);
+					git(15,5);printf("DÃ¼Ã¾man Saldirdi            ");Sleep(1000);
 					player.CAN=player.CAN-eatk;
-					git(15,5);printf("%d hasar aldın             ",eatk);Sleep(1000);
+					git(15,5);printf("%d hasar aldÃ½n             ",eatk);Sleep(1000);
 					player.CAN=(player.CAN<0)?0:player.CAN;	
 					Death();				
 				}else if(secim==2){
 					HealMenu();
 					player.CAN=player.CAN-eatk;
 					if(player.CAN>player.MCAN)player.CAN=player.MCAN;
-					git(15,5);printf("Düşman Saldirdi             ");Sleep(1000);					
-					git(15,5);printf("%d hasar aldın.             ",eatk);Sleep(1000);
+					git(15,5);printf("DÃ¼Ã¾man Saldirdi             ");Sleep(1000);					
+					git(15,5);printf("%d hasar aldÃ½n.             ",eatk);Sleep(1000);
 					player.CAN=(player.CAN<0)?0:player.CAN;	
 					Death();}
 				}
 			}
 		
 		Isaretle(secim);
-		git(5,5);printf("%s'in Canı: %d  ",player.AD,player.CAN);git(5,40);printf("%s'in Canı: %d  ",enemy.AD,enemy.CAN);
-		git(6,5);printf("%s'in Gücü: %d  ",player.AD,player.ATK);git(6,40);printf("%s'in Gücü: %d  ",enemy.AD,enemy.ATK);
-		git(7,5);printf("%s'in Defansı: %d  ",player.AD,player.DEF);git(7,40);printf("%s'in Defansı: %d  ",enemy.AD,enemy.DEF);
+		git(5,5);printf("%s'in CanÃ½: %d  ",player.AD,player.CAN);git(5,40);printf("%s'in CanÃ½: %d  ",enemy.AD,enemy.CAN);
+		git(6,5);printf("%s'in GÃ¼cÃ¼: %d  ",player.AD,player.ATK);git(6,40);printf("%s'in GÃ¼cÃ¼: %d  ",enemy.AD,enemy.ATK);
+		git(7,5);printf("%s'in DefansÃ½: %d  ",player.AD,player.DEF);git(7,40);printf("%s'in DefansÃ½: %d  ",enemy.AD,enemy.DEF);
 				SavasYazilar();
 		Sleep(60);
 	}
@@ -718,7 +718,7 @@ void SavasMenu(struct Enemy enemy){
 	player.GLD+=AL;
 	Temizle();
 	git(10,25);printf("K A Z A N D I N !");
-	git(20,5);printf("%d TP ve %d Altın kazanadin",TP,AL);
+	git(20,5);printf("%d TP ve %d AltÃ½n kazanadin",TP,AL);
 	int EsyaSansi,f,k=rand()%2,LootSlot=0,j;
 	struct Item Loot;
 	if(k==0){
@@ -741,7 +741,7 @@ void SavasMenu(struct Enemy enemy){
 		if(player.Location>=C1){
 	if(EsyaSansi==1 || EsyaSansi==10 || EsyaSansi==20 || EsyaSansi==30 || EsyaSansi==40 || EsyaSansi==49){
 	player.UITM[LootSlot]=Loot;
-	git(22,5);printf(" %s Den bir %s buldun.(Eşyaları Şehirde Donanabilirsin.)",enemy.AD,Loot.AD);	
+	git(22,5);printf(" %s Den bir %s buldun.(EÃ¾yalarÃ½ Ãehirde Donanabilirsin.)",enemy.AD,Loot.AD);	
 	}}}
 	getch();
 }
@@ -749,112 +749,112 @@ void SavasMenu(struct Enemy enemy){
 void LvlUP(){
 	if(player.EXP>=20 && player.level<2){
 	Temizle();
-	git(5,25);printf("S E V İ Y E	A T L A D I N !");Sleep(60);
+	git(5,25);printf("S E V Ã Y E	A T L A D I N !");Sleep(60);
 	player.ATK+=1;
 	player.DEF+=1;
 	player.level+=1;
 	player.MCAN+=3;
 	player.CAN=player.MCAN;
-	git(6,5);printf("Güc defeans ve max canın arrtı ve tamamen iyileştin");Sleep(60);
-	git(8,5);printf("Yeni Değerlerin:");
-	git(10,5);printf("Güc: %d",player.ATK);
+	git(6,5);printf("GÃ¼c defeans ve max canÃ½n arrtÃ½ ve tamamen iyileÃ¾tin");Sleep(60);
+	git(8,5);printf("Yeni DeÃ°erlerin:");
+	git(10,5);printf("GÃ¼c: %d",player.ATK);
 	git(11,5);printf("Defans: %d",player.DEF);
 	git(12,5);printf("Can: %d",player.MCAN);
-	git(13,5);printf("Altın: %d",player.GLD);
+	git(13,5);printf("AltÃ½n: %d",player.GLD);
 	git(14,5);printf("Seviye: %d",player.level);
-	git(15,5);printf("Tecrübe puanı: %d",player.EXP);
-	git(16,5);printf("Saldırı Eşyan: ");
-	git(17,5);printf("%s        Hasarı: %d       Değeri: %d Altın",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
-	git(18,5);printf("Savunma Eşyan: ");	
-	git(19,5);printf("%s        Defansı: %d       Değeri: %d Altın",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
+	git(15,5);printf("TecrÃ¼be puanÃ½: %d",player.EXP);
+	git(16,5);printf("SaldÃ½rÃ½ EÃ¾yan: ");
+	git(17,5);printf("%s        HasarÃ½: %d       DeÃ°eri: %d AltÃ½n",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
+	git(18,5);printf("Savunma EÃ¾yan: ");	
+	git(19,5);printf("%s        DefansÃ½: %d       DeÃ°eri: %d AltÃ½n",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
 	getch();		
 	}
 	else if(player.EXP>=40 && player.level<3){
 	Temizle();
-	git(5,25);printf("S E V İ Y E	A T L A D I N !");Sleep(60);
+	git(5,25);printf("S E V Ã Y E	A T L A D I N !");Sleep(60);
 	player.ATK+=1;
 	player.DEF+=1;
 	player.level+=1;
 	player.MCAN+=3;
 	player.CAN=player.MCAN;
-	git(6,5);printf("Güc defeans ve max canın arrtı ve tamamen iyileştin");Sleep(60);
-	git(8,5);printf("Yeni Değerlerin:");
-	git(10,5);printf("Güc: %d",player.ATK);
+	git(6,5);printf("GÃ¼c defeans ve max canÃ½n arrtÃ½ ve tamamen iyileÃ¾tin");Sleep(60);
+	git(8,5);printf("Yeni DeÃ°erlerin:");
+	git(10,5);printf("GÃ¼c: %d",player.ATK);
 	git(11,5);printf("Defans: %d",player.DEF);
 	git(12,5);printf("Can: %d",player.MCAN);
-	git(13,5);printf("Altın: %d",player.GLD);
+	git(13,5);printf("AltÃ½n: %d",player.GLD);
 	git(14,5);printf("Seviye: %d",player.level);
-	git(15,5);printf("Tecrübe puanı: %d",player.EXP);
-	git(16,5);printf("Saldırı Eşyan: ");
-	git(17,5);printf("%s        Hasarı: %d       Değeri: %d Altın",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
-	git(18,5);printf("Savunma Eşyan: ");	
-	git(19,5);printf("%s        Defansı: %d       Değeri: %d Altın",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
+	git(15,5);printf("TecrÃ¼be puanÃ½: %d",player.EXP);
+	git(16,5);printf("SaldÃ½rÃ½ EÃ¾yan: ");
+	git(17,5);printf("%s        HasarÃ½: %d       DeÃ°eri: %d AltÃ½n",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
+	git(18,5);printf("Savunma EÃ¾yan: ");	
+	git(19,5);printf("%s        DefansÃ½: %d       DeÃ°eri: %d AltÃ½n",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
 	getch();		
 	}
 	else if(player.EXP>=60 && player.level<4){
 	Temizle();
-	git(5,25);printf("S E V İ Y E	A T L A D I N !");Sleep(60);
+	git(5,25);printf("S E V Ã Y E	A T L A D I N !");Sleep(60);
 	player.ATK+=1;
 	player.DEF+=1;
 	player.level+=1;
 	player.MCAN+=3;
 	player.CAN=player.MCAN;
-	git(6,5);printf("Güc defeans ve max canın arrtı ve tamamen iyileştin");Sleep(60);
-	git(8,5);printf("Yeni Değerlerin:");
-	git(10,5);printf("Güc: %d",player.ATK);
+	git(6,5);printf("GÃ¼c defeans ve max canÃ½n arrtÃ½ ve tamamen iyileÃ¾tin");Sleep(60);
+	git(8,5);printf("Yeni DeÃ°erlerin:");
+	git(10,5);printf("GÃ¼c: %d",player.ATK);
 	git(11,5);printf("Defans: %d",player.DEF);
 	git(12,5);printf("Can: %d",player.MCAN);
-	git(13,5);printf("Altın: %d",player.GLD);
+	git(13,5);printf("AltÃ½n: %d",player.GLD);
 	git(14,5);printf("Seviye: %d",player.level);
-	git(15,5);printf("Tecrübe puanı: %d",player.EXP);
-	git(16,5);printf("Saldırı Eşyan: ");
-	git(17,5);printf("%s        Hasarı: %d       Değeri: %d Altın",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
-	git(18,5);printf("Savunma Eşyan: ");	
-	git(19,5);printf("%s        Defansı: %d       Değeri: %d Altın",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
+	git(15,5);printf("TecrÃ¼be puanÃ½: %d",player.EXP);
+	git(16,5);printf("SaldÃ½rÃ½ EÃ¾yan: ");
+	git(17,5);printf("%s        HasarÃ½: %d       DeÃ°eri: %d AltÃ½n",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
+	git(18,5);printf("Savunma EÃ¾yan: ");	
+	git(19,5);printf("%s        DefansÃ½: %d       DeÃ°eri: %d AltÃ½n",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
 	getch();;	
 	}
 	else if(player.EXP>=80 && player.level<5){
 	Temizle();
-	git(5,25);printf("S E V İ Y E	A T L A D I N !");Sleep(60);
+	git(5,25);printf("S E V Ã Y E	A T L A D I N !");Sleep(60);
 	player.ATK+=1;
 	player.DEF+=1;
 	player.level+=1;
 	player.MCAN+=3;
 	player.CAN=player.MCAN;
-	git(6,5);printf("Güc defeans ve max canın arrtı ve tamamen iyileştin");Sleep(60);
-	git(8,5);printf("Yeni Değerlerin:");
-	git(10,5);printf("Güc: %d",player.ATK);
+	git(6,5);printf("GÃ¼c defeans ve max canÃ½n arrtÃ½ ve tamamen iyileÃ¾tin");Sleep(60);
+	git(8,5);printf("Yeni DeÃ°erlerin:");
+	git(10,5);printf("GÃ¼c: %d",player.ATK);
 	git(11,5);printf("Defans: %d",player.DEF);
 	git(12,5);printf("Can: %d",player.MCAN);
-	git(13,5);printf("Altın: %d",player.GLD);
+	git(13,5);printf("AltÃ½n: %d",player.GLD);
 	git(14,5);printf("Seviye: %d",player.level);
-	git(15,5);printf("Tecrübe puanı: %d",player.EXP);
-	git(16,5);printf("Saldırı Eşyan: ");
-	git(17,5);printf("%s        Hasarı: %d       Değeri: %d Altın",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
-	git(18,5);printf("Savunma Eşyan: ");	
-	git(19,5);printf("%s        Defansı: %d       Değeri: %d Altın",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
+	git(15,5);printf("TecrÃ¼be puanÃ½: %d",player.EXP);
+	git(16,5);printf("SaldÃ½rÃ½ EÃ¾yan: ");
+	git(17,5);printf("%s        HasarÃ½: %d       DeÃ°eri: %d AltÃ½n",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
+	git(18,5);printf("Savunma EÃ¾yan: ");	
+	git(19,5);printf("%s        DefansÃ½: %d       DeÃ°eri: %d AltÃ½n",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
 	getch();
 	}
 	else if(player.EXP>=100 && player.level<6){
 	Temizle();
-	git(5,25);printf("S E V İ Y E	A T L A D I N !");Sleep(60);
+	git(5,25);printf("S E V Ã Y E	A T L A D I N !");Sleep(60);
 	player.ATK+=1;
 	player.DEF+=1;
 	player.level+=1;
 	player.MCAN+=3;
 	player.CAN=player.MCAN;
-	git(6,5);printf("Güc defeans ve max canın arrtı ve tamamen iyileştin");Sleep(60);
-	git(8,5);printf("Yeni Değerlerin:");
-	git(10,5);printf("Güc: %d",player.ATK);
+	git(6,5);printf("GÃ¼c defeans ve max canÃ½n arrtÃ½ ve tamamen iyileÃ¾tin");Sleep(60);
+	git(8,5);printf("Yeni DeÃ°erlerin:");
+	git(10,5);printf("GÃ¼c: %d",player.ATK);
 	git(11,5);printf("Defans: %d",player.DEF);
 	git(12,5);printf("Can: %d",player.MCAN);
-	git(13,5);printf("Altın: %d",player.GLD);
+	git(13,5);printf("AltÃ½n: %d",player.GLD);
 	git(14,5);printf("Seviye: %d",player.level);
-	git(15,5);printf("Tecrübe puanı: %d",player.EXP);
-	git(16,5);printf("Saldırı Eşyan: ");
-	git(17,5);printf("%s        Hasarı: %d       Değeri: %d Altın",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
-	git(18,5);printf("Savunma Eşyan: ");	
-	git(19,5);printf("%s        Defansı: %d       Değeri: %d Altın",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
+	git(15,5);printf("TecrÃ¼be puanÃ½: %d",player.EXP);
+	git(16,5);printf("SaldÃ½rÃ½ EÃ¾yan: ");
+	git(17,5);printf("%s        HasarÃ½: %d       DeÃ°eri: %d AltÃ½n",player.AITM.AD,player.AITM.IATK,player.AITM.IVLU);
+	git(18,5);printf("Savunma EÃ¾yan: ");	
+	git(19,5);printf("%s        DefansÃ½: %d       DeÃ°eri: %d AltÃ½n",player.DITM.AD,player.DITM.IDEF,player.DITM.IVLU);						
 	getch();
 	}
 }
@@ -863,7 +863,7 @@ void Death(){
 	Temizle();
 	durum=T;
 	char menu1[]="Tekrar Dene";
-	char baslik[]="Ö L D Ü N";
+	char baslik[]="Ã– L D Ãœ N";
 	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
@@ -883,7 +883,7 @@ void Death(){
 		Temizle();
 	durum=T;
 	char menu1[]="Tekrar Dene";
-	char baslik[]="Ö L D Ü N";
+	char baslik[]="Ã– L D Ãœ N";
 	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
@@ -902,7 +902,7 @@ void Death(){
 		Temizle();
 	durum=T;
 	char menu1[]="Tekrar Dene";
-	char baslik[]="Ö L D Ü N";
+	char baslik[]="Ã– L D Ãœ N";
 	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
@@ -921,7 +921,7 @@ void Death(){
 		Temizle();
 	durum=T;
 	char menu1[]="Tekrar Dene";
-	char baslik[]="Ö L D Ü N";
+	char baslik[]="Ã– L D Ãœ N";
 	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
@@ -942,11 +942,11 @@ void Death(){
 }
 
 void Chapter0(){
-	git(5,5);printf("Gözlerini yavaşça açıyorusun.Bir yatakta uyandın. Ancak buraya nasıl ");Sleep(60);
-	git(6,5);printf("geldiğin hakkında hiç bir fikrin yok.Yavaşça kalkıyorsun. Yaraların ");Sleep(60);
-	git(7,5);printf("olduğunu fark ediyorsun. Biraz zorlanarak da olsa ayağa kalkıyorsun.");Sleep(60);
+	git(5,5);printf("GÃ¶zlerini yavaÃ¾Ã§a aÃ§Ã½yorusun.Bir yatakta uyandÃ½n. Ancak buraya nasÃ½l ");Sleep(60);
+	git(6,5);printf("geldiÃ°in hakkÃ½nda hiÃ§ bir fikrin yok.YavaÃ¾Ã§a kalkÃ½yorsun. YaralarÃ½n ");Sleep(60);
+	git(7,5);printf("olduÃ°unu fark ediyorsun. Biraz zorlanarak da olsa ayaÃ°a kalkÃ½yorsun.");Sleep(60);
 {	durum=T;
-	char menu1[]="Etrafı Arastır";
+	char menu1[]="EtrafÃ½ ArastÃ½r";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -960,7 +960,7 @@ void Chapter0(){
 		}
 }
 Temizle();
-	git(8,5);printf("Etrafa Bakindin. Yattiğin Yerin Yakininda bir not buldun.");
+	git(8,5);printf("Etrafa Bakindin. YattiÃ°in Yerin Yakininda bir not buldun.");
 {	durum=T;
 	char menu1[]="Notu Oku";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
@@ -976,13 +976,13 @@ Temizle();
 		}
 }
 Temizle();
-	git(8,5);printf("Seni yaralı halde ana yolun üstünde buldum. Ben yakındaki şehirdeki");Sleep(60);
-	git(9,5);printf("bir tüccarım. Uzun zamandır uyuyorsun. Ben şehre gitmek zorundayım.");Sleep(60);
-	git(10,5);printf("Lütfen şehre gelmeye çalışma yollarda haydutlar tuzak kuruyor.");Sleep(60);
-	git(11,5);printf("Eğer nerden gitmen gerektiği bilmiyorsan kesin bir tuzağa düşersin.");Sleep(60);
-	git(12,5);printf("Üstelik bir mağaradan da geçmen gerekli. Ben gelene kadar bekle.");Sleep(60);
+	git(8,5);printf("Seni yaralÃ½ halde ana yolun Ã¼stÃ¼nde buldum. Ben yakÃ½ndaki Ã¾ehirdeki");Sleep(60);
+	git(9,5);printf("bir tÃ¼ccarÃ½m. Uzun zamandÃ½r uyuyorsun. Ben Ã¾ehre gitmek zorundayÃ½m.");Sleep(60);
+	git(10,5);printf("LÃ¼tfen Ã¾ehre gelmeye Ã§alÃ½Ã¾ma yollarda haydutlar tuzak kuruyor.");Sleep(60);
+	git(11,5);printf("EÃ°er nerden gitmen gerektiÃ°i bilmiyorsan kesin bir tuzaÃ°a dÃ¼Ã¾ersin.");Sleep(60);
+	git(12,5);printf("Ãœstelik bir maÃ°aradan da geÃ§men gerekli. Ben gelene kadar bekle.");Sleep(60);
 {	durum=T;
-	char menu1[]=">>>   Şehre Doğru Yola Çık   <<<";
+	char menu1[]=">>>   Ãehre DoÃ°ru Yola Ã‡Ã½k   <<<";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -995,13 +995,13 @@ Temizle();
 		}
 }
 Temizle();
-	git(8,5);printf("Yolda etrafa dikkatlice bakarak yürüken birinin elinde kılıçla sana");Sleep(60);
-	git(9,5);printf("doğru koştuğunu farkediyorsun. Saldıracak gibi duruyor. Yaklaşma diye");Sleep(60);
-	git(10,5);printf("bağrıyorsun. Adam biraz daha koşup duruyor.");Sleep(60);
-	git(11,5);printf("Haydut: Ya paranı verirsin yada zorla alırım");Sleep(60);
+	git(8,5);printf("Yolda etrafa dikkatlice bakarak yÃ¼rÃ¼ken birinin elinde kÃ½lÃ½Ã§la sana");Sleep(60);
+	git(9,5);printf("doÃ°ru koÃ¾tuÃ°unu farkediyorsun. SaldÃ½racak gibi duruyor. YaklaÃ¾ma diye");Sleep(60);
+	git(10,5);printf("baÃ°rÃ½yorsun. Adam biraz daha koÃ¾up duruyor.");Sleep(60);
+	git(11,5);printf("Haydut: Ya paranÃ½ verirsin yada zorla alÃ½rÃ½m");Sleep(60);
 {	struct Enemy a;durum=T;int secim=1;char isim[7]="Haydut";
-git(13,5);printf("  Sana tek kuruş vermeyeceğim");Sleep(60);
-git(14,5);printf("  Tamam geçiş için para ödeyeceğim (75 Altın)");Sleep(60);
+git(13,5);printf("  Sana tek kuruÃ¾ vermeyeceÃ°im");Sleep(60);
+git(14,5);printf("  Tamam geÃ§iÃ¾ iÃ§in para Ã¶deyeceÃ°im (75 AltÃ½n)");Sleep(60);
 durum=T;	
 		while(durum){
 			if(kbhit()){
@@ -1026,7 +1026,7 @@ durum=T;
 					Savas(a,isim);	
 					}else if(secim==2){
 						if(player.GLD>=75){
-					git(22,5);printf("75 altin ödedin");
+					git(22,5);printf("75 altin Ã¶dedin");
 					player.GLD-=75;
 						}else{
 							git(17,5);printf("Yeteri kadar paran yok. Saldirmak zorundasin.");Sleep(70);
@@ -1048,10 +1048,10 @@ git(2+12,5);printf(" ");
 LvlUP();
 Temizle();
 	git(5,5);printf("Haydutdan kurtulduktan sonra yoluna devam ediyorusun.Ancak biraz ilerde");Sleep(60);
-	git(6,5);printf("başka bir haydut önünü kesiyor.");Sleep(60);	
+	git(6,5);printf("baÃ¾ka bir haydut Ã¶nÃ¼nÃ¼ kesiyor.");Sleep(60);	
 {	struct Enemy a;durum=T;int secim=1;char isim[7]="Haydut";
-git(13,5);printf("  Sana tek kuruş vermeyeceğim");Sleep(60);
-git(14,5);printf("  Tamam geçiş için para ödeyeceğim (75 Altın)");Sleep(60);
+git(13,5);printf("  Sana tek kuruÃ¾ vermeyeceÃ°im");Sleep(60);
+git(14,5);printf("  Tamam geÃ§iÃ¾ iÃ§in para Ã¶deyeceÃ°im (75 AltÃ½n)");Sleep(60);
 durum=T;	
 		while(durum){
 			if(kbhit()){
@@ -1076,7 +1076,7 @@ durum=T;
 					Savas(a,isim);	
 					}else if(secim==2){
 						if(player.GLD>=75){
-					git(22,5);printf("75 altin ödedin");
+					git(22,5);printf("75 altin Ã¶dedin");
 					player.GLD-=75;
 						}else{
 							git(17,5);printf("Yeteri kadar paran yok. Saldirmak zorundasin.");Sleep(70);
@@ -1098,11 +1098,11 @@ git(2+12,5);printf(" ");
 LvlUP();
 Temizle();
 	git(5,5);printf("2. hayduttan da kurtulktan sonra yoluna devam ediyorusun. Biraz daha");Sleep(60);
-	git(6,5);printf("ilerledikten sonra bir mağara girişine rastlıyorsun. Bu notta bahsedilen");Sleep(60);
-	git(7,5);printf("Mağara olmalı diye düşünüyorsun. Biraz bir ağaç gölgesinde dinlektikten");Sleep(60);
-	git(8,5);printf("sonra mağaranın içine doğru ilerliyorsun. Mağarada yürüken adımlarına");Sleep(60);
-	git(9,5);printf("dikkat ederek, olabilidiğince az ses çıkararak yürüyorsun. Ancak bir");Sleep(60);
-	git(10,5);printf("kurt seni fark ediyor. Oldukça aç görünen kurt sana doğru koşuyor");Sleep(600);
+	git(6,5);printf("ilerledikten sonra bir maÃ°ara giriÃ¾ine rastlÃ½yorsun. Bu notta bahsedilen");Sleep(60);
+	git(7,5);printf("MaÃ°ara olmalÃ½ diye dÃ¼Ã¾Ã¼nÃ¼yorsun. Biraz bir aÃ°aÃ§ gÃ¶lgesinde dinlektikten");Sleep(60);
+	git(8,5);printf("sonra maÃ°aranÃ½n iÃ§ine doÃ°ru ilerliyorsun. MaÃ°arada yÃ¼rÃ¼ken adÃ½mlarÃ½na");Sleep(60);
+	git(9,5);printf("dikkat ederek, olabilidiÃ°ince az ses Ã§Ã½kararak yÃ¼rÃ¼yorsun. Ancak bir");Sleep(60);
+	git(10,5);printf("kurt seni fark ediyor. OldukÃ§a aÃ§ gÃ¶rÃ¼nen kurt sana doÃ°ru koÃ¾uyor");Sleep(600);
 	getch();
 	Temizle();
 {
@@ -1112,11 +1112,11 @@ Temizle();
 LvlUP();
 Sleep(250);
 Temizle();
-	git(5,5);printf("Kurtun icabına baktıntan sonra ilerde bir ışık görüyorsun. Işığa doğru");Sleep(60);
-	git(6,5);printf("yaklaştıkça sesler duymaya başlıyorsun. Işığın mağaranın çıkışı olduğunu");Sleep(60);
-	git(7,5);printf("anlaman uzun sürmüyor. Mağaradan çıkınca ilerdeki şehri görüyorsun");Sleep(60);
+	git(5,5);printf("Kurtun icabÃ½na baktÃ½ntan sonra ilerde bir Ã½Ã¾Ã½k gÃ¶rÃ¼yorsun. IÃ¾Ã½Ã°a doÃ°ru");Sleep(60);
+	git(6,5);printf("yaklaÃ¾tÃ½kÃ§a sesler duymaya baÃ¾lÃ½yorsun. IÃ¾Ã½Ã°Ã½n maÃ°aranÃ½n Ã§Ã½kÃ½Ã¾Ã½ olduÃ°unu");Sleep(60);
+	git(7,5);printf("anlaman uzun sÃ¼rmÃ¼yor. MaÃ°aradan Ã§Ã½kÃ½nca ilerdeki Ã¾ehri gÃ¶rÃ¼yorsun");Sleep(60);
 {	durum=T;
-	char menu1[]="Şehre Git";
+	char menu1[]="Ãehre Git";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -1130,14 +1130,14 @@ Temizle();
 		}
 }
 	Temizle();
-	git(5,5);printf("Çok geçmeden şehre varıyorsun. Şehrin sokakalrında dolaşmaya başlıyorsun.");Sleep(60);
-	git(6,5);printf("Kalabalık bir sokakata gezerken birisi sana sesleniyor. Sesin ne taraftan");Sleep(60);
-	git(7,5);printf("geldiğini anlamaya çalışırken biri seni kolundan tutup demirci dükkanına");Sleep(60);
-	git(8,5);printf("götürüyor. Biraz sinirli  bir tonla konuşmaya başlıyor.");Sleep(60);
-	git(10,5);printf("Demirci: Sana beni beklemni söylememiş miydim? Neden beni dinlemiyorsun?");Sleep(60);	
+	git(5,5);printf("Ã‡ok geÃ§meden Ã¾ehre varÃ½yorsun. Ãehrin sokakalrÃ½nda dolaÃ¾maya baÃ¾lÃ½yorsun.");Sleep(60);
+	git(6,5);printf("KalabalÃ½k bir sokakata gezerken birisi sana sesleniyor. Sesin ne taraftan");Sleep(60);
+	git(7,5);printf("geldiÃ°ini anlamaya Ã§alÃ½Ã¾Ã½rken biri seni kolundan tutup demirci dÃ¼kkanÃ½na");Sleep(60);
+	git(8,5);printf("gÃ¶tÃ¼rÃ¼yor. Biraz sinirli  bir tonla konuÃ¾maya baÃ¾lÃ½yor.");Sleep(60);
+	git(10,5);printf("Demirci: Sana beni beklemni sÃ¶ylememiÃ¾ miydim? Neden beni dinlemiyorsun?");Sleep(60);	
 {	int secim=1;
-	git(13,5);printf(" Beni sen mi kurtardın?");
-	git(14,5);printf(" Beni tanıyor musun?");
+	git(13,5);printf(" Beni sen mi kurtardÃ½n?");
+	git(14,5);printf(" Beni tanÃ½yor musun?");
 durum=T;	
 		while(durum){
 			if(kbhit()){
@@ -1157,12 +1157,12 @@ durum=T;
 				}
 				else if(tus==13){
 					if(secim==1){
-						git(11,5);printf("Beni sen mi kurtardın?");Sleep(500);
+						git(11,5);printf("Beni sen mi kurtardÃ½n?");Sleep(500);
 						git(13,5);printf("                        ");
 						git(14,5);printf("                        ");
 					durum=F;	
 					}else if(secim==2){
-						git(11,5);printf("Beni tanıyor musun?");Sleep(500);
+						git(11,5);printf("Beni tanÃ½yor musun?");Sleep(500);
 						git(13,5);printf("                        ");
 						git(14,5);printf("                        ");
 						
@@ -1178,13 +1178,13 @@ git(1+12,5);printf(" ");
 git(2+12,5);printf(" ");
 Sleep(250);		
 }
-	Sleep(500);git(12,5);printf("Demrici: Notumu okumadın mı. Seni yolda buldum. Yaralıydın. Hatta");Sleep(60);
-	git(13,5);printf("seni ölü sanıp orda bıracaktım. Ancak sayıklamaya başladın. Boğalar");Sleep(60);
-	git(14,5);printf("gibi bir şey diyordun. bunun sana boğalar mı yaptı?");Sleep(60);
+	Sleep(500);git(12,5);printf("Demrici: Notumu okumadÃ½n mÃ½. Seni yolda buldum. YaralÃ½ydÃ½n. Hatta");Sleep(60);
+	git(13,5);printf("seni Ã¶lÃ¼ sanÃ½p orda bÃ½racaktÃ½m. Ancak sayÃ½klamaya baÃ¾ladÃ½n. BoÃ°alar");Sleep(60);
+	git(14,5);printf("gibi bir Ã¾ey diyordun. bunun sana boÃ°alar mÃ½ yaptÃ½?");Sleep(60);
 {	int secim=1;
-	git(16,5);printf(" Boğalar?");
-	git(17,5);printf(" Hatırlayamıyorum.");
-	git(18,5);printf(" Buralarda vahşi boğa mı var?");
+	git(16,5);printf(" BoÃ°alar?");
+	git(17,5);printf(" HatÃ½rlayamÃ½yorum.");
+	git(18,5);printf(" Buralarda vahÃ¾i boÃ°a mÃ½ var?");
 durum=T;	
 		while(durum){
 			if(kbhit()){
@@ -1212,19 +1212,19 @@ durum=T;
 				}
 				else if(tus==13){
 					if(secim==1){
-						git(15,5);printf("Boğalar?");
+						git(15,5);printf("BoÃ°alar?");
 						git(16,5);printf("                              ");Sleep(500);
 						git(17,5);printf("                              ");
 						git(18,5);printf("                              ");
 					durum=F;	
 					}else if(secim==2){
-						git(15,5);printf("Hatırlayamıyorum.");Sleep(500);
+						git(15,5);printf("HatÃ½rlayamÃ½yorum.");Sleep(500);
 						git(16,5);printf("                              ");
 						git(17,5);printf("                              ");
 						git(18,5);printf("                              ");
 					durum=F;	
 					}else if(secim==3){
-						git(15,5);printf("Buralarda vahşi boğa mı var?");Sleep(500);
+						git(15,5);printf("Buralarda vahÃ¾i boÃ°a mÃ½ var?");Sleep(500);
 						git(16,5);printf("                              ");
 						git(17,5);printf("                              ");
 						git(18,5);printf("                              ");	
@@ -1235,10 +1235,10 @@ durum=T;
 		}
 	Sleep(200);			
 }
-	git(16,5);printf("Boğalar buraların en bilinen haydut grubudur. Bu şehride bir doktor var.");Sleep(60);
-	git(17,5);printf("Onu bul. Belki hatırlamana yardımcı olabilir. Doktordan sonra bana tekrar");Sleep(60);
-	git(18,5);printf("bir uğra. Senin için kılıç ve zırh yapacağım. Belki sana özel bir indirim");Sleep(60);
-	git(19,5);printf("bile yaparım. Doktor muhtemlen handadır.");Sleep(60);
+	git(16,5);printf("BoÃ°alar buralarÃ½n en bilinen haydut grubudur. Bu Ã¾ehride bir doktor var.");Sleep(60);
+	git(17,5);printf("Onu bul. Belki hatÃ½rlamana yardÃ½mcÃ½ olabilir. Doktordan sonra bana tekrar");Sleep(60);
+	git(18,5);printf("bir uÃ°ra. Senin iÃ§in kÃ½lÃ½Ã§ ve zÃ½rh yapacaÃ°Ã½m. Belki sana Ã¶zel bir indirim");Sleep(60);
+	git(19,5);printf("bile yaparÃ½m. Doktor muhtemlen handadÃ½r.");Sleep(60);
 	
 {	durum=T;
 	char menu1[]="Hana Git";
@@ -1251,22 +1251,22 @@ durum=T;
 				}
 			}
 		Isaretle(2);
-	git(19,5);printf("bile yaparım. Doktor muhtemlen handadır.");Sleep(1000);				
+	git(19,5);printf("bile yaparÃ½m. Doktor muhtemlen handadÃ½r.");Sleep(1000);				
 		}
 }
 	Sleep(250);
 	Temizle();
-	git(5,5);printf("Hanı bulup içeri giriyorsun. Etrafa bir göz gezdirip hancıya doğru");Sleep(60);
-	git(6,5);printf("ilerliyorsun. Hancıdan içecek isteyip dokturu soruyorsun. hancı kafasıyla");Sleep(60);
-	git(7,5);printf("Bir adamı işaret ediyor. içeceğini içip doktora gidiyorsun. Demircinin");Sleep(60);
-	git(8,5);printf("söylediklerini ona anlatıyorsun. Doktor arkası dönük \"Yinebir pusu vakası\"");Sleep(60);
-	git(9,5);printf("diyor ve dönüyor. Doktorun suratında bir şaşkınlık ifadesi görüyorsun.");Sleep(60);
-	git(10,5);printf("Doktor: %s bu sen misin? Ne oldu sana? Gel de bana herşeyi anlat.",player.AD);Sleep(60);
-	git(11,5);printf("(bir süre sonra)");Sleep(60);
-	git(12,5);printf("Doktor: Ah pardon hatırlamıyordun değil mi? Şu ilaçları içip biraz");Sleep(60);
-	git(13,5);printf("dinlenirsen yavaş yavaş hatırlamaya başlarsın.");Sleep(60);
+	git(5,5);printf("HanÃ½ bulup iÃ§eri giriyorsun. Etrafa bir gÃ¶z gezdirip hancÃ½ya doÃ°ru");Sleep(60);
+	git(6,5);printf("ilerliyorsun. HancÃ½dan iÃ§ecek isteyip dokturu soruyorsun. hancÃ½ kafasÃ½yla");Sleep(60);
+	git(7,5);printf("Bir adamÃ½ iÃ¾aret ediyor. iÃ§eceÃ°ini iÃ§ip doktora gidiyorsun. Demircinin");Sleep(60);
+	git(8,5);printf("sÃ¶ylediklerini ona anlatÃ½yorsun. Doktor arkasÃ½ dÃ¶nÃ¼k \"Yinebir pusu vakasÃ½\"");Sleep(60);
+	git(9,5);printf("diyor ve dÃ¶nÃ¼yor. Doktorun suratÃ½nda bir Ã¾aÃ¾kÃ½nlÃ½k ifadesi gÃ¶rÃ¼yorsun.");Sleep(60);
+	git(10,5);printf("Doktor: %s bu sen misin? Ne oldu sana? Gel de bana herÃ¾eyi anlat.",player.AD);Sleep(60);
+	git(11,5);printf("(bir sÃ¼re sonra)");Sleep(60);
+	git(12,5);printf("Doktor: Ah pardon hatÃ½rlamÃ½yordun deÃ°il mi? Ãu ilaÃ§larÃ½ iÃ§ip biraz");Sleep(60);
+	git(13,5);printf("dinlenirsen yavaÃ¾ yavaÃ¾ hatÃ½rlamaya baÃ¾larsÃ½n.");Sleep(60);
 {	durum=T;
-	char menu1[]="İlaçları iç";
+	char menu1[]="ÃlaÃ§larÃ½ iÃ§";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -1281,26 +1281,26 @@ durum=T;
 		
 }
 	player.CAN=player.MCAN;
-	git(16,5);printf("İlaçlarını içip uykuya dalıyorsun. Uyandığında her hafta doktora erzak");Sleep(60);
-	git(17,5);printf("ve ilaç getirip yardım ettiğni hatırlıyorsun. onun çocukluk arkadaşın");Sleep(60);
-	git(18,5);printf("olduğu aklına geliyor. Bir süre sonra saldırıldığın günü hatırlıyorsun.");Sleep(60);
-	git(19,5);printf("Ailenle birlikte oldupunu hatırlıyorsun. onları korumaya çalışırken");Sleep(60);
-	git(20,5);printf("Ağır yaralanmıştın. neyseki seni ölü sanıp yolda atmışlardı. Ancak");Sleep(60);
-	git(21,5);printf("ailen hala onların elindeydi. en kısa zamanda yola çıkman gerekiyordu.");Sleep(60);
-	git(22,5);printf("Doktoru çağırıp en yakında Boğa sığınağını sordun.");Sleep(60);
-	git(23,5);printf("Doktor: Şehrin biraz kuzeyinde ama orası iyi korunur. güneyde küçük");Sleep(60);
-	git(24,5);printf("bir erzak depoları var orda aradığn cevapları bulabilirsin belki");Sleep(60);
-	git(25,5);printf("gitmeden bunları da al.(5 ilaç aldın)");Sleep(60);
+	git(16,5);printf("ÃlaÃ§larÃ½nÃ½ iÃ§ip uykuya dalÃ½yorsun. UyandÃ½Ã°Ã½nda her hafta doktora erzak");Sleep(60);
+	git(17,5);printf("ve ilaÃ§ getirip yardÃ½m ettiÃ°ni hatÃ½rlÃ½yorsun. onun Ã§ocukluk arkadaÃ¾Ã½n");Sleep(60);
+	git(18,5);printf("olduÃ°u aklÃ½na geliyor. Bir sÃ¼re sonra saldÃ½rÃ½ldÃ½Ã°Ã½n gÃ¼nÃ¼ hatÃ½rlÃ½yorsun.");Sleep(60);
+	git(19,5);printf("Ailenle birlikte oldupunu hatÃ½rlÃ½yorsun. onlarÃ½ korumaya Ã§alÃ½Ã¾Ã½rken");Sleep(60);
+	git(20,5);printf("AÃ°Ã½r yaralanmÃ½Ã¾tÃ½n. neyseki seni Ã¶lÃ¼ sanÃ½p yolda atmÃ½Ã¾lardÃ½. Ancak");Sleep(60);
+	git(21,5);printf("ailen hala onlarÃ½n elindeydi. en kÃ½sa zamanda yola Ã§Ã½kman gerekiyordu.");Sleep(60);
+	git(22,5);printf("Doktoru Ã§aÃ°Ã½rÃ½p en yakÃ½nda BoÃ°a sÃ½Ã°Ã½naÃ°Ã½nÃ½ sordun.");Sleep(60);
+	git(23,5);printf("Doktor: Ãehrin biraz kuzeyinde ama orasÃ½ iyi korunur. gÃ¼neyde kÃ¼Ã§Ã¼k");Sleep(60);
+	git(24,5);printf("bir erzak depolarÃ½ var orda aradÃ½Ã°n cevaplarÃ½ bulabilirsin belki");Sleep(60);
+	git(25,5);printf("gitmeden bunlarÃ½ da al.(5 ilaÃ§ aldÃ½n)");Sleep(60);
 	player.CONS[0].ADT+=5;
 {
 struct Item BasicSword, BasicArmor;
 BasicSword.IATK=2;							BasicArmor.IATK=0;	
 BasicSword.IDEF=0;							BasicArmor.IDEF=5;		
 BasicSword.IVLU=25;							BasicArmor.IVLU=25;		
-strcpy(BasicSword.AD,"Basit Kılıc");		strcpy(BasicArmor.AD,"Basit Zırh");	
+strcpy(BasicSword.AD,"Basit KÃ½lÃ½c");		strcpy(BasicArmor.AD,"Basit ZÃ½rh");	
 	int secim=1;durum=T;
 	char menu1[]="Demirciye Git";
-	char menu2[]="Şehirden Çık";
+	char menu2[]="Ãehirden Ã‡Ã½k";
 	YaziYaz(28,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 	YaziYaz(31,(kolon-4-strlen(menu2))/2,menu2,strlen(menu2));
 		do{
@@ -1322,9 +1322,9 @@ strcpy(BasicSword.AD,"Basit Kılıc");		strcpy(BasicArmor.AD,"Basit Zırh");
 				else if(tus==13){
 					if(secim==1){
 					Sleep(250);Temizle();Sleep(250);
-					git(5,5);printf("Demirci Ah hoşgeldin! Zırhın Ve kılcın hazır. Toplamda 100");Sleep(60);
-					git(6,5);printf("altın ediyor ama sen 50 altına alabilirsin.");Sleep(60);
-					git(8,5);printf(">Teşekkürler");Sleep(60);
+					git(5,5);printf("Demirci Ah hoÃ¾geldin! ZÃ½rhÃ½n Ve kÃ½lcÃ½n hazÃ½r. Toplamda 100");Sleep(60);
+					git(6,5);printf("altÃ½n ediyor ama sen 50 altÃ½na alabilirsin.");Sleep(60);
+					git(8,5);printf(">TeÃ¾ekkÃ¼rler");Sleep(60);
 					getch();
 					player.GLD-=50;
 					player.AITM=BasicSword;
@@ -1338,9 +1338,9 @@ strcpy(BasicSword.AD,"Basit Kılıc");		strcpy(BasicArmor.AD,"Basit Zırh");
 	if(durum==F)
 		break;		
 	Isaretle(secim+3);
-	git(19,5);printf("Ailenle birlikte olduğunu hatırlıyorsun. onları korumaya çalışırken");
-	git(22,5);printf("Doktoru çağırıp en yakında Boğa sığınağını sordun.");
-	git(25,5);printf("gitmeden bunları da al.(5 ilaç aldın)");Sleep(1000);			
+	git(19,5);printf("Ailenle birlikte olduÃ°unu hatÃ½rlÃ½yorsun. onlarÃ½ korumaya Ã§alÃ½Ã¾Ã½rken");
+	git(22,5);printf("Doktoru Ã§aÃ°Ã½rÃ½p en yakÃ½nda BoÃ°a sÃ½Ã°Ã½naÃ°Ã½nÃ½ sordun.");
+	git(25,5);printf("gitmeden bunlarÃ½ da al.(5 ilaÃ§ aldÃ½n)");Sleep(1000);			
 		}while(durum);	
 }
 Temizle();
@@ -1352,12 +1352,12 @@ Chapter1();
 
 void SehirMenuYazilar(){
 	char bilgi[]="HUBC";
-  	char baslik[]="Aşağı Ağıl";
-  	char menu1[]="DEMİRCİYE GİT";
-  	char menu2[]="SATIŞ YAP";
-  	char menu3[]="HANA GİT";
+  	char baslik[]="AÃ¾aÃ°Ã½ AÃ°Ã½l";
+  	char menu1[]="DEMÃRCÃYE GÃT";
+  	char menu2[]="SATIÃ YAP";
+  	char menu3[]="HANA GÃT";
   	char menu4[]="ENVANTER";
-  	char menu5[]="ŞEHİRDEN ÇIK";
+  	char menu5[]="ÃEHÃRDEN Ã‡IK";
 
   	YaziYaz(satir-3,(kolon-4-strlen(bilgi))/2,bilgi,strlen(bilgi));
   	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
@@ -1394,10 +1394,10 @@ x1[i].IVLU=rand()%10+21+x1[i].IDEF+player.level;
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;						
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -1439,23 +1439,23 @@ void EnvanterYazdir(){
 		if(player.UITM[j].IVLU!=0)
 	slot++;		
 	}
-	git(5,5);printf("%s'nin Envanteri:		Altının: %d ",player.AD,player.GLD);
+	git(5,5);printf("%s'nin Envanteri:		AltÃ½nÃ½n: %d ",player.AD,player.GLD);
 	for(i=0;i<slot;i++){
-	git(i+8,5);printf("  %s ",player.UITM[i].AD);git(i+8,25);printf("Hasar: %d ",player.UITM[i].IATK);git(i+8,40);printf("Defans: %d ",player.UITM[i].IDEF);git(i+8,55);printf("Değer: %d Altın",player.UITM[i].IVLU);	
+	git(i+8,5);printf("  %s ",player.UITM[i].AD);git(i+8,25);printf("Hasar: %d ",player.UITM[i].IATK);git(i+8,40);printf("Defans: %d ",player.UITM[i].IDEF);git(i+8,55);printf("DeÃ°er: %d AltÃ½n",player.UITM[i].IVLU);	
 	}
 }
 void CEnvanterYazdir(){
 	int i;
-	git(20,5);printf("Tüketilebilir Eşyalar: ");
+	git(20,5);printf("TÃ¼ketilebilir EÃ¾yalar: ");
 	for(i=0;i<5;i++){
 		git(i+22,5);printf(" %s ",player.CONS[i].ADI);git(i+22,25);printf("(%d Adet)",player.CONS[i].ADT);
 	}
 }
 
 void Equiped(){
-	git(28,5);printf("Donanılmış Eşyalar: ");
-	git(30,5);printf(" %s ",player.AITM.AD);git(30,25);printf("Hasarı: %d",player.AITM.IATK);
-	git(31,5);printf("% s ",player.DITM.AD);git(31,25);printf("Defansı: %d",player.DITM.IDEF);
+	git(28,5);printf("DonanÃ½lmÃ½Ã¾ EÃ¾yalar: ");
+	git(30,5);printf(" %s ",player.AITM.AD);git(30,25);printf("HasarÃ½: %d",player.AITM.IATK);
+	git(31,5);printf("% s ",player.DITM.AD);git(31,25);printf("DefansÃ½: %d",player.DITM.IDEF);
 }
 
 void Envanter(){
@@ -1466,7 +1466,7 @@ Temizle();
 	int s=slot-1;	
 	struct Item yedek;
 	int i,secim=0;
-	git(slot+8,5);printf("  Şehir Meyadanına Geri Dön ");
+	git(slot+8,5);printf("  Ãehir MeyadanÃ½na Geri DÃ¶n ");
 						git(8,5);printf(">");	
 		while(durum){
 		if(kbhit()){
@@ -1474,14 +1474,14 @@ Temizle();
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						git(secim+9,5);printf(" "); 					
 				secim=(secim==slot+1)?0:secim;
 				secim=(secim==-1)?slot:secim;	
 						git(secim+8,5);printf(">");									
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++; 
 						git(secim+7,5);printf(" ");						
 				secim=(secim==slot+1)?0:secim;
@@ -1617,7 +1617,7 @@ void SatisMenu(){
 	int s=slot-1;	
 	struct Item yedek;
 	int i,secim=0;
-	git(slot+8,5);printf("  Şehir Meyadanına Geri Dön ");
+	git(slot+8,5);printf("  Ãehir MeyadanÃ½na Geri DÃ¶n ");
 						git(8,5);printf(">");	
 		while(durum){
 		if(kbhit()){
@@ -1625,14 +1625,14 @@ void SatisMenu(){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						git(secim+9,5);printf(" "); 					
 				secim=(secim==slot+1)?0:secim;
 				secim=(secim==-1)?slot:secim;	
 						git(secim+8,5);printf(">");									
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++; 
 						git(secim+7,5);printf(" ");						
 				secim=(secim==slot+1)?0:secim;
@@ -1714,11 +1714,11 @@ void TuccarMenu(struct Item x[10]){
 	}
 	int i,secim=0;
 	Temizle();
-	git(5,5);printf("Tüccarın Envanteri:		Altının: %d ",player.GLD);
+	git(5,5);printf("TÃ¼ccarÃ½n Envanteri:		AltÃ½nÃ½n: %d ",player.GLD);
 	for(i=0;i<10;i++){
-	git(i+8,5);printf("  %s  ",x[i].AD);git(i+8,25);printf("Hasar: %d ",x[i].IATK);git(i+8,40);printf("Defans: %d ",x[i].IDEF);git(i+8,55);printf("Değer: %d Altın",x[i].IVLU);	
+	git(i+8,5);printf("  %s  ",x[i].AD);git(i+8,25);printf("Hasar: %d ",x[i].IATK);git(i+8,40);printf("Defans: %d ",x[i].IDEF);git(i+8,55);printf("DeÃ°er: %d AltÃ½n",x[i].IVLU);	
 	}
-	git(18,5);printf("  Şehir Meyadanına Geri Dön ");
+	git(18,5);printf("  Ãehir MeyadanÃ½na Geri DÃ¶n ");
 						git(8,5);printf(">");	
 		while(durum){
 		if(kbhit()){
@@ -1726,14 +1726,14 @@ void TuccarMenu(struct Item x[10]){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						git(secim+9,5);printf(" "); 					
 				secim=(secim==11)?0:secim;
 				secim=(secim==-1)?10:secim;	
 						git(secim+8,5);printf(">");									
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						git(secim+7,5);printf(" ");						
 				secim=(secim==11)?0:secim;
@@ -1750,7 +1750,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[0].IVLU;
 												TuccarMenu(x);
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}					
 					break;
 					case 1:
@@ -1760,7 +1760,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[1].IVLU;
 												TuccarMenu(x);
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}						
 					break;
 					case 2:
@@ -1770,7 +1770,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[2].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;
 					case 3:
@@ -1780,7 +1780,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[3].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;							
 					case 4:
@@ -1790,7 +1790,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[4].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;							
 					case 5:
@@ -1800,7 +1800,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[5].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;							
 					case 6:
@@ -1810,7 +1810,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[6].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;
 					case 7:
@@ -1820,7 +1820,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[7].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;
 					case 8:
@@ -1830,7 +1830,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[8].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;
 					case 9:
@@ -1840,7 +1840,7 @@ void TuccarMenu(struct Item x[10]){
 								player.GLD-=x[9].IVLU;
 												TuccarMenu(x);								
 							}else{
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												TuccarMenu(x);	}
 					break;
 					case 10:
@@ -1858,14 +1858,14 @@ void TuccarMenu(struct Item x[10]){
 void HanMenu(){
 	char bilgi[]="HUBC";
   	char baslik[]=" ";
-  	char menu1[]="Hancıya Git";
-  	char menu2[]="Doktorla Konuş";
+  	char menu1[]="HancÃ½ya Git";
+  	char menu2[]="Doktorla KonuÃ¾";
 
   	YaziYaz(satir-3,(kolon-4-strlen(bilgi))/2,bilgi,strlen(bilgi));
   	YaziYaz(12,(kolon-4-strlen(baslik))/2,baslik,strlen(baslik));
   	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
   	YaziYaz(22,(kolon-4-strlen(menu2))/2,menu2,strlen(menu2));
-	git(22,50);printf("(15 Altın)");  
+	git(22,50);printf("(15 AltÃ½n)");  
 	int secim=1;
 	durum=T;
 	while(durum){
@@ -1874,10 +1874,10 @@ void HanMenu(){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						break;
 				}
@@ -1890,10 +1890,10 @@ void HanMenu(){
 				}else if(secim==2){
 					durum=F;
 					Temizle();
-		git(5,5);printf("%s : Yaralarıma bakım gerekli.",player.AD);getch();
-		git(6,5);printf("Doktor: Belirli bir ücret karşılığında olur.(15 Altın)");
-		if(player.GLD>=15){git(7,5);printf("İşte Altının.(Canın Tamamen doldu)");player.GLD-=15;player.CAN=player.MCAN;Sleep(1800);SehirMenu(SehirMenuYazilar,6);}
-		else{git(7,5);printf("Yeterli Altınım Yok");Sleep(1500);SehirMenu(SehirMenuYazilar,6);}			
+		git(5,5);printf("%s : YaralarÃ½ma bakÃ½m gerekli.",player.AD);getch();
+		git(6,5);printf("Doktor: Belirli bir Ã¼cret karÃ¾Ã½lÃ½Ã°Ã½nda olur.(15 AltÃ½n)");
+		if(player.GLD>=15){git(7,5);printf("ÃÃ¾te AltÃ½nÃ½n.(CanÃ½n Tamamen doldu)");player.GLD-=15;player.CAN=player.MCAN;Sleep(1800);SehirMenu(SehirMenuYazilar,6);}
+		else{git(7,5);printf("Yeterli AltÃ½nÃ½m Yok");Sleep(1500);SehirMenu(SehirMenuYazilar,6);}			
 				}
 			}
 		}
@@ -1906,17 +1906,17 @@ void HanMenu(){
 void HanciMenu(){
 	durum=T;
 	struct CItem x[5];
-	strcpy(x[0].ADI,"İlaç");	strcpy(x[1].ADI,"Elma");	strcpy(x[2].ADI,"Bandaj");  strcpy(x[3].ADI,"Portakal");	strcpy(x[4].ADI,"Mantar");
+	strcpy(x[0].ADI,"ÃlaÃ§");	strcpy(x[1].ADI,"Elma");	strcpy(x[2].ADI,"Bandaj");  strcpy(x[3].ADI,"Portakal");	strcpy(x[4].ADI,"Mantar");
 	x[0].VLU=20;x[0].HEL=5;x[0].ADT=1	;x[1].VLU=15;x[1].HEL=1;x[1].ADT=1;	x[2].VLU=19;x[2].HEL=4;x[2].ADT=1;	x[3].VLU=17;x[3].HEL=3;x[3].ADT=1;	x[4].VLU=16;x[4].HEL=2;x[4].ADT=1;
 	int j;
 	int i,secim=0;
 	Temizle();
-	git(5,5);printf("Hancının Envanteri:		Altının: %d ",player.GLD);
-	git(6,5);printf("(Not: Tüketilebilir eşyaları satamazsın!)");
+	git(5,5);printf("HancÃ½nÃ½n Envanteri:		AltÃ½nÃ½n: %d ",player.GLD);
+	git(6,5);printf("(Not: TÃ¼ketilebilir eÃ¾yalarÃ½ satamazsÃ½n!)");
 	for(i=0;i<5;i++){
-	git(i+8,5);printf("  %s  ",x[i].ADI);git(i+8,25);printf("İyileştirme: %d ",x[i].HEL);git(i+8,40);printf("Değer: %d Altın",x[i].VLU);
+	git(i+8,5);printf("  %s  ",x[i].ADI);git(i+8,25);printf("ÃyileÃ¾tirme: %d ",x[i].HEL);git(i+8,40);printf("DeÃ°er: %d AltÃ½n",x[i].VLU);
 	}
-	git(13,5);printf("  Şehir Meyadanına Geri Dön ");
+	git(13,5);printf("  Ãehir MeyadanÃ½na Geri DÃ¶n ");
 						git(8,5);printf(">");	
 		while(durum){
 		if(kbhit()){
@@ -1924,14 +1924,14 @@ void HanciMenu(){
 			if(tus==224){
 				tus=getch();
 				switch(tus){
-					case 72:   //yukarı yön tuşu
+					case 72:   //yukarÃ½ yÃ¶n tuÃ¾u
 						secim--;
 						git(secim+9,5);printf(" "); 					
 				secim=(secim==6)?0:secim;
 				secim=(secim==-1)?5:secim;	
 						git(secim+8,5);printf(">");									
 						break;
-					case 80:  // aşağı yön tuşu
+					case 80:  // aÃ¾aÃ°Ã½ yÃ¶n tuÃ¾u
 						secim++;
 						git(secim+7,5);printf(" ");						
 				secim=(secim==6)?0:secim;
@@ -1948,7 +1948,7 @@ void HanciMenu(){
 								player.GLD-=x[0].VLU;
 												HanciMenu(x);
 							}else{						
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												HanciMenu(x);	}					
 					break;
 					case 1:
@@ -1958,7 +1958,7 @@ void HanciMenu(){
 								player.GLD-=x[1].VLU;
 												HanciMenu(x);
 							}else{						
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												HanciMenu(x);	}						
 					break;
 					case 2:
@@ -1968,7 +1968,7 @@ void HanciMenu(){
 								player.GLD-=x[2].VLU;
 												HanciMenu(x);								
 							}else{						
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												HanciMenu(x);	}
 					break;
 					case 3:
@@ -1978,7 +1978,7 @@ void HanciMenu(){
 								player.GLD-=x[3].VLU;
 												HanciMenu(x);								
 							}else{						
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												HanciMenu(x);	}
 					break;							
 					case 4:
@@ -1988,7 +1988,7 @@ void HanciMenu(){
 								player.GLD-=x[4].VLU;
 												HanciMenu(x);								
 							}else{						
-						git(22,22);printf("YETERSİZ ALTIN");Sleep(1000);
+						git(22,22);printf("YETERSÃZ ALTIN");Sleep(1000);
 												HanciMenu(x);	}
 					break;							
 					case 5:
@@ -2003,8 +2003,8 @@ void HanciMenu(){
 	
 }
 void sonMenu(){
-	char menu1[]="Yapımcılar";
-  	char menu2[]="Berra Sarı";
+	char menu1[]="YapÃ½mcÃ½lar";
+  	char menu2[]="Berra SarÃ½";
   	char menu3[]="Umut Enes Uzun";
   	char menu4[]="Hakan Tekir";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
@@ -2017,11 +2017,11 @@ void Chapter1(){
 	Temizle();
 	playerOnDeath=player;
 	player.Location=C1;
-	git(5,5);printf("Boğa sığınağına doğru yola çıktın ve uzun bir süredir yürüyorsun.");Sleep(60);
-	git(6,5);printf("Kendine geceyi atlatacak kadar sığınacak bir yer bulman lazım.");Sleep(60);
+	git(5,5);printf("BoÃ°a sÃ½Ã°Ã½naÃ°Ã½na doÃ°ru yola Ã§Ã½ktÃ½n ve uzun bir sÃ¼redir yÃ¼rÃ¼yorsun.");Sleep(60);
+	git(6,5);printf("Kendine geceyi atlatacak kadar sÃ½Ã°Ã½nacak bir yer bulman lazÃ½m.");Sleep(60);
 	
 {	durum=T;
-	char menu1[]="Etrafı Arastır";
+	char menu1[]="EtrafÃ½ ArastÃ½r";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2035,11 +2035,11 @@ void Chapter1(){
 		}
 }
 Temizle();
-	git(7,5);printf("Etrafı dolaştıktan sonra sığınılabilecek bir mağara buldun. ");
+	git(7,5);printf("EtrafÃ½ dolaÃ¾tÃ½ktan sonra sÃ½Ã°Ã½nÃ½labilecek bir maÃ°ara buldun. ");
 	
 
 {	durum=T;
-	char menu1[]="  Mağaraya Gir  ";
+	char menu1[]="  MaÃ°araya Gir  ";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2053,15 +2053,15 @@ Temizle();
 		}
 }
 Temizle();
-	git(5,5);printf("Mağaraya usulca ilerledin.");Sleep(60);
-	git(6,5);printf("İçeri rüzgarın girmediği bir bölüm aramaya başladın.");Sleep(60);
-	git(7,5);printf("Burada yaşayan bir yerli olduğunu fark ettin.");Sleep(60);
-	git(8,5);printf("Yerliden mağarada kalmak için izin istedin.");Sleep(60);
-	git(9,5);printf("Yerli: Kalmak istiyorsan 10 altın isterim yoksa izinsiz girdiğin için");Sleep(60);
-	git(10,5);printf("canını alırım");Sleep(60);
+	git(5,5);printf("MaÃ°araya usulca ilerledin.");Sleep(60);
+	git(6,5);printf("ÃÃ§eri rÃ¼zgarÃ½n girmediÃ°i bir bÃ¶lÃ¼m aramaya baÃ¾ladÃ½n.");Sleep(60);
+	git(7,5);printf("Burada yaÃ¾ayan bir yerli olduÃ°unu fark ettin.");Sleep(60);
+	git(8,5);printf("Yerliden maÃ°arada kalmak iÃ§in izin istedin.");Sleep(60);
+	git(9,5);printf("Yerli: Kalmak istiyorsan 10 altÃ½n isterim yoksa izinsiz girdiÃ°in iÃ§in");Sleep(60);
+	git(10,5);printf("canÃ½nÃ½ alÃ½rÃ½m");Sleep(60);
 {	struct Enemy a;durum=T;int secim=1;char isim[7]="Yerli";
-git(13,5);printf("  Sana altın vermeyeceğim");Sleep(60);
-git(14,5);printf("  Tamam ,kalmak için para ödeyeceğim (10 Altın)");Sleep(60);
+git(13,5);printf("  Sana altÃ½n vermeyeceÃ°im");Sleep(60);
+git(14,5);printf("  Tamam ,kalmak iÃ§in para Ã¶deyeceÃ°im (10 AltÃ½n)");Sleep(60);
 durum=T;	
 		while(durum){
 			if(kbhit()){
@@ -2086,12 +2086,12 @@ durum=T;
 					Savas(a,isim);	
 					}else if(secim==2){
 						if(player.GLD>=10){
-					git(22,5);printf("10 altin ödedin");
+					git(22,5);printf("10 altin Ã¶dedin");
 					player.GLD-=10;
 					Sleep(1000);
 						}else{
-							git(17,5);printf("Yeteri kadar paran yok. Sana saldırmak üzere olan yerliye");Sleep(70);
-							git(18,5);printf("karşı kendini korumak zorundasın!");Sleep(60);
+							git(17,5);printf("Yeteri kadar paran yok. Sana saldÃ½rmak Ã¼zere olan yerliye");Sleep(70);
+							git(18,5);printf("karÃ¾Ã½ kendini korumak zorundasÃ½n!");Sleep(60);
 							getch();
 							Temizle();
 							Savas(a,isim);
@@ -2109,9 +2109,9 @@ git(2+12,5);printf(" ");
 }
 LvlUP();
 Temizle();
-	git(5,5);printf("Yoluna devam ediyorusun.Geceyi orda geçiriyorsun.");Sleep(60);
-	git(6,5);printf("Sabah oluyor ve Boğa sığınağına doğru yola çıkıyorsun.");Sleep(60);
-	git(7,5);printf("Karnın acıktı ve susadın.Yiyecek ve su bulmalısın.");Sleep(60);
+	git(5,5);printf("Yoluna devam ediyorusun.Geceyi orda geÃ§iriyorsun.");Sleep(60);
+	git(6,5);printf("Sabah oluyor ve BoÃ°a sÃ½Ã°Ã½naÃ°Ã½na doÃ°ru yola Ã§Ã½kÃ½yorsun.");Sleep(60);
+	git(7,5);printf("KarnÃ½n acÃ½ktÃ½ ve susadÃ½n.Yiyecek ve su bulmalÃ½sÃ½n.");Sleep(60);
 	{	durum=T;
 	char menu1[]="Yiyecek ve su ara";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
@@ -2127,9 +2127,9 @@ Temizle();
 		}
 }
 Temizle();
-	git(5,5);printf("Etrafı araştırdıktan sonra bir su birikintisi ve elma ağacı buldun.");Sleep(60);
-	git(6,5);printf("Su içtikten sonra elma toplamak için ağaca yöneldin.");Sleep(60);
-	git(7,5);printf("Ve sana doğru hızla gelen bir kurt olduğını gördün.");Sleep(600);
+	git(5,5);printf("EtrafÃ½ araÃ¾tÃ½rdÃ½ktan sonra bir su birikintisi ve elma aÃ°acÃ½ buldun.");Sleep(60);
+	git(6,5);printf("Su iÃ§tikten sonra elma toplamak iÃ§in aÃ°aca yÃ¶neldin.");Sleep(60);
+	git(7,5);printf("Ve sana doÃ°ru hÃ½zla gelen bir kurt olduÃ°Ã½nÃ½ gÃ¶rdÃ¼n.");Sleep(600);
 	getch();
 	Temizle();
 {
@@ -2139,8 +2139,8 @@ Temizle();
 LvlUP();
 Sleep(250);
 Temizle();
-	git(5,5);printf("Kurtun icabına baktıntan sonra karnını elmalarla doyurdun.");Sleep(60);
-	git(6,5);printf("Arkanı döndüğünde az önce kurtulduğun kurtun eşiyle göz göze geldin.");Sleep(600);
+	git(5,5);printf("Kurtun icabÃ½na baktÃ½ntan sonra karnÃ½nÃ½ elmalarla doyurdun.");Sleep(60);
+	git(6,5);printf("ArkanÃ½ dÃ¶ndÃ¼Ã°Ã¼nde az Ã¶nce kurtulduÃ°un kurtun eÃ¾iyle gÃ¶z gÃ¶ze geldin.");Sleep(600);
 	getch();
 	Temizle();
 {
@@ -2150,11 +2150,11 @@ Temizle();
 LvlUP();
 Sleep(250);
 Temizle();
-	git(7,5);printf("Geri dönüp elmaların birazını da yanına alıp yürümeye ");Sleep(60);
-	git(8,5);printf("devam ettin.İleride bir şehir olduğunu gördün.");Sleep(60);
+	git(7,5);printf("Geri dÃ¶nÃ¼p elmalarÃ½n birazÃ½nÃ½ da yanÃ½na alÃ½p yÃ¼rÃ¼meye ");Sleep(60);
+	git(8,5);printf("devam ettin.Ãleride bir Ã¾ehir olduÃ°unu gÃ¶rdÃ¼n.");Sleep(60);
 	player.CONS[1].ADT+=5;
 {	durum=T;
-	char menu1[]="Şehre Git";
+	char menu1[]="Ãehre Git";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2175,11 +2175,11 @@ void Chapter2(){
 	Temizle();
 	player.Location=C2;
 	playerOnDeath=player;
-	git(11,5);printf("Şehirden ayrılmaya hazırlanırken bir dilencinin seni");Sleep(60);
-	git(12,5);printf("takip ettiğini fark ettin. Bir süre sonra önüne");Sleep(60);
-	git(13,5);printf("çıktı ve senden para istedi.");Sleep(60);
-	git(15,6);printf("Altın verme");Sleep(60);
-	git(16,6);printf("5 Altın ver");Sleep(60);
+	git(11,5);printf("Ãehirden ayrÃ½lmaya hazÃ½rlanÃ½rken bir dilencinin seni");Sleep(60);
+	git(12,5);printf("takip ettiÃ°ini fark ettin. Bir sÃ¼re sonra Ã¶nÃ¼ne");Sleep(60);
+	git(13,5);printf("Ã§Ã½ktÃ½ ve senden para istedi.");Sleep(60);
+	git(15,6);printf("AltÃ½n verme");Sleep(60);
+	git(16,6);printf("5 AltÃ½n ver");Sleep(60);
 	durum=T; int secim=1;
 		while(durum){
 			if(kbhit()){
@@ -2202,19 +2202,19 @@ void Chapter2(){
 					durum=F;
 					Temizle();
 					git(12,5);printf("Dilenciye para veremedin.");Sleep(70);
-					git(13,5);printf("Dilenci söylenerek giderken sana bir kağıt parçası uzattı.");Sleep(60);	
+					git(13,5);printf("Dilenci sÃ¶ylenerek giderken sana bir kaÃ°Ã½t parÃ§asÃ½ uzattÃ½.");Sleep(60);	
 					}else if(secim==2){
 						if(player.GLD>=5){
 							Temizle();
 							git(12,5);printf("5 altin verdin"); Sleep(60);
-							git(13,5);printf("Altını verirken dilenci sana bir kağıt parçası uzattı."); Sleep(60);
+							git(13,5);printf("AltÃ½nÃ½ verirken dilenci sana bir kaÃ°Ã½t parÃ§asÃ½ uzattÃ½."); Sleep(60);
 							player.GLD-=5;
 							Sleep(1000);
 						}
 						else{
 							Temizle();
 							git(12,5);printf("Yeteri kadar paran yok. Dilenciye para veremedin.");Sleep(70);
-							git(13,5);printf("Dilenci söylenerek giderken sana bir kağıt parçası uzattı.");Sleep(60);
+							git(13,5);printf("Dilenci sÃ¶ylenerek giderken sana bir kaÃ°Ã½t parÃ§asÃ½ uzattÃ½.");Sleep(60);
 							getch();
 							Temizle();
 							 }
@@ -2241,11 +2241,11 @@ void Chapter2(){
 		}
 }
 	Temizle();	
-	git(11,5);printf("Kağıdı açıp okuyorsun. Kağıtta şunlar yazıyor:");Sleep(60);
+	git(11,5);printf("KaÃ°Ã½dÃ½ aÃ§Ã½p okuyorsun. KaÃ°Ã½tta Ã¾unlar yazÃ½yor:");Sleep(60);
 	git(12,5);printf("--------------------------------------------------------------------------");Sleep(60);
-	git(13,5);printf("Hana git ve hancıya  \"Güneş doğduğnda ve battığında orman bizi korur\" de.");Sleep(60);
-	git(14,5);printf("Kolaylıkla gelmezsen zorla getiririz.");Sleep(60);
-	git(15,5);printf("--------------------------------------------------------------------------");Sleep(60);//Yapabilirsem kağıt gibi görünsün diye bunu bir karenin içine yazacağım
+	git(13,5);printf("Hana git ve hancÃ½ya  \"GÃ¼neÃ¾ doÃ°duÃ°nda ve battÃ½Ã°Ã½nda orman bizi korur\" de.");Sleep(60);
+	git(14,5);printf("KolaylÃ½kla gelmezsen zorla getiririz.");Sleep(60);
+	git(15,5);printf("--------------------------------------------------------------------------");Sleep(60);//Yapabilirsem kaÃ°Ã½t gibi gÃ¶rÃ¼nsÃ¼n diye bunu bir karenin iÃ§ine yazacaÃ°Ã½m
 {	durum=T;
 	char menu1[]="Hana git";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
@@ -2264,9 +2264,9 @@ void Chapter2(){
 	git(11,5);printf("Hana gitmeye karar verdin.");Sleep(60);
 	getch();
 	paraYok:
-	git(11,5);printf("Hancı: İyi günler. Nasıl yardımcı olabilirim.");Sleep(60);
-	git(13,6);printf("Güneş doğduğnda ve battığında orman bizi korur");Sleep(60);
-	git(14,6);printf("Bira ver hancı.");Sleep(60);
+	git(11,5);printf("HancÃ½: Ãyi gÃ¼nler. NasÃ½l yardÃ½mcÃ½ olabilirim.");Sleep(60);
+	git(13,6);printf("GÃ¼neÃ¾ doÃ°duÃ°nda ve battÃ½Ã°Ã½nda orman bizi korur");Sleep(60);
+	git(14,6);printf("Bira ver hancÃ½.");Sleep(60);
 	secim=1; durum=T;
 	while(durum){
 		if(kbhit()){
@@ -2288,18 +2288,18 @@ void Chapter2(){
 					if(secim==1){
 					durum=F;
 					Temizle();
-					git(12,6);printf("Güneş doğduğnda ve battığında orman bizi korur");Sleep(70);//Düzeltmeyi unutma
-					git(13,6);printf("Notta yazan şeyleri okuduktan sonra hancı seni gizli bir odaya götürdü.");Sleep(60);	
+					git(12,6);printf("GÃ¼neÃ¾ doÃ°duÃ°nda ve battÃ½Ã°Ã½nda orman bizi korur");Sleep(70);//DÃ¼zeltmeyi unutma
+					git(13,6);printf("Notta yazan Ã¾eyleri okuduktan sonra hancÃ½ seni gizli bir odaya gÃ¶tÃ¼rdÃ¼.");Sleep(60);	
 					}else if(secim==2){
 						if(player.GLD>=10){
 							Temizle();
-							git(12,6);printf("10 altın verdin"); Sleep(60);
-							git(13,6);printf("İçkini içerken hancının birine seni işaret ettiğini gördün."); Sleep(60);
+							git(12,6);printf("10 altÃ½n verdin"); Sleep(60);
+							git(13,6);printf("ÃÃ§kini iÃ§erken hancÃ½nÃ½n birine seni iÃ¾aret ettiÃ°ini gÃ¶rdÃ¼n."); Sleep(60);
 							player.GLD-=10;
 							getch();
-							git(12,6);printf("Bir süre sonra bir grup elf masana oturdu.");Sleep(60);//Başka bir ırk olabilir
-							git(13,6);printf("Elflerden biri: Sana zorluk çıkarma demiştik.");Sleep(60);
-							git(14,6);printf("İçkini içtikten sonra handaki gizli bir odaya gittiniz.");Sleep(60);
+							git(12,6);printf("Bir sÃ¼re sonra bir grup elf masana oturdu.");Sleep(60);//BaÃ¾ka bir Ã½rk olabilir
+							git(13,6);printf("Elflerden biri: Sana zorluk Ã§Ã½karma demiÃ¾tik.");Sleep(60);
+							git(14,6);printf("ÃÃ§kini iÃ§tikten sonra handaki gizli bir odaya gittiniz.");Sleep(60);
 						}
 						else{
 							Temizle();
@@ -2318,12 +2318,12 @@ void Chapter2(){
 		}
 	getch();
 	Temizle();
-	git(12,5);printf("Elflerin başı: Merhaba. Ben Orman Gardiyanları grubunun başı.");Sleep(60);
-	git(13,5);printf("Boğalar senin köyün gibi gibi bizim ormanlarımıza de saldırdı.");Sleep(60);
-	git(14,5);printf("Bizde Boğalara karşı Orman Gardiyanlarını kurduk.");Sleep(60);
-	git(15,5);printf("Seni Boğalara karşı birleşmeye davet ediyorum.");Sleep(60);
+	git(12,5);printf("Elflerin baÃ¾Ã½: Merhaba. Ben Orman GardiyanlarÃ½ grubunun baÃ¾Ã½.");Sleep(60);
+	git(13,5);printf("BoÃ°alar senin kÃ¶yÃ¼n gibi gibi bizim ormanlarÃ½mÃ½za de saldÃ½rdÃ½.");Sleep(60);
+	git(14,5);printf("Bizde BoÃ°alara karÃ¾Ã½ Orman GardiyanlarÃ½nÃ½ kurduk.");Sleep(60);
+	git(15,5);printf("Seni BoÃ°alara karÃ¾Ã½ birleÃ¾meye davet ediyorum.");Sleep(60);
 {	durum=T;
-	char menu1[]="Elflere katıl";
+	char menu1[]="Elflere katÃ½l";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2337,9 +2337,9 @@ void Chapter2(){
 		}
 }
 	Temizle();
-	git(12,5);printf("Orman Gardiyanlarına katıldın.");Sleep(60);
-	git(13,5);printf("Havanın kararmak üzere olduğunu fark ettin. Elflerden");Sleep(60);
-	git(14,5);printf("bugün kalmak için bir yer istedin.");Sleep(60);
+	git(12,5);printf("Orman GardiyanlarÃ½na katÃ½ldÃ½n.");Sleep(60);
+	git(13,5);printf("HavanÃ½n kararmak Ã¼zere olduÃ°unu fark ettin. Elflerden");Sleep(60);
+	git(14,5);printf("bugÃ¼n kalmak iÃ§in bir yer istedin.");Sleep(60);
 {	durum=T;
 	char menu1[]="Uyu";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
@@ -2355,8 +2355,8 @@ void Chapter2(){
 		}
 }
 	Temizle();
-	git(12,5);printf("Sabah olduğunda Boğaların bugün kervanla silah ve zırh");Sleep(60);
-	git(13,5);printf("taşıyacaklarını öğrendin. Bunun için şehir dışında bir");Sleep(60);
+	git(12,5);printf("Sabah olduÃ°unda BoÃ°alarÃ½n bugÃ¼n kervanla silah ve zÃ½rh");Sleep(60);
+	git(13,5);printf("taÃ¾Ã½yacaklarÃ½nÃ½ Ã¶Ã°rendin. Bunun iÃ§in Ã¾ehir dÃ½Ã¾Ã½nda bir");Sleep(60);
 	git(14,5);printf("pusu kurmaya karar verdiniz.");Sleep(60);
 {	durum=T;
 	char menu1[]="Pusuya git";
@@ -2373,27 +2373,27 @@ void Chapter2(){
 		}
 }
 	Temizle();
-	git(12,5);printf("Boğaların pusu noktasına yaklaştığını farkettiniz.");Sleep(60);
-	git(13,5);printf("Atların önünü kestiniz. Elflerden yay kullananlar kervanı"); Sleep(60);
-	git(14,5);printf("ok yağmuruna tuttu. Sende kılıç kullananlar ile beraber"); Sleep(60);
-	git(15,5);printf("Boğalara hücum ettin. Karşına Baltacı Boğa çıktı."); Sleep(60);
+	git(12,5);printf("BoÃ°alarÃ½n pusu noktasÃ½na yaklaÃ¾tÃ½Ã°Ã½nÃ½ farkettiniz.");Sleep(60);
+	git(13,5);printf("AtlarÃ½n Ã¶nÃ¼nÃ¼ kestiniz. Elflerden yay kullananlar kervanÃ½"); Sleep(60);
+	git(14,5);printf("ok yaÃ°muruna tuttu. Sende kÃ½lÃ½Ã§ kullananlar ile beraber"); Sleep(60);
+	git(15,5);printf("BoÃ°alara hÃ¼cum ettin. KarÃ¾Ã½na BaltacÃ½ BoÃ°a Ã§Ã½ktÃ½."); Sleep(60);
 	getch();
 	Temizle();
-	struct Enemy a; char baltaci[13]="Baltacı Boğa";
+	struct Enemy a; char baltaci[13]="BaltacÃ½ BoÃ°a";
 	Savas(a,baltaci);
 	Temizle();
-	git(12,5);printf("Baltacı Boğa'yı öldürdükten sonra başka bir Boğanın");Sleep(60);
-	git(13,5);printf("üstüne koştuğunu fark ettin.");Sleep(60);
+	git(12,5);printf("BaltacÃ½ BoÃ°a'yÃ½ Ã¶ldÃ¼rdÃ¼kten sonra baÃ¾ka bir BoÃ°anÃ½n");Sleep(60);
+	git(13,5);printf("Ã¼stÃ¼ne koÃ¾tuÃ°unu fark ettin.");Sleep(60);
 	getch();
 	Temizle();
-	struct Enemy b; char kilicli[13]="Kılıçlı Boğa";
+	struct Enemy b; char kilicli[13]="KÃ½lÃ½Ã§lÃ½ BoÃ°a";
 	Savas(b,kilicli);
 	Temizle();
 	struct Item BogasSword, BogasArmor;
 	BogasSword.IATK=5;							BogasArmor.IATK=0;	
 	BogasSword.IDEF=0;							BogasArmor.IDEF=8;		
 	BogasSword.IVLU=75;							BogasArmor.IVLU=75;		
-	strcpy(BogasSword.AD,"Boğa Kılıcı");		strcpy(BogasArmor.AD,"Boğa Zırhı");	
+	strcpy(BogasSword.AD,"BoÃ°a KÃ½lÃ½cÃ½");		strcpy(BogasArmor.AD,"BoÃ°a ZÃ½rhÃ½");	
 	slot=0;int i;
 	for(i=0;i<10;i++){
 		if(player.UITM[i].IVLU!=0)slot++;
@@ -2402,10 +2402,10 @@ void Chapter2(){
 	player.UITM[slot]=BogasSword;slot++;}
 	if(slot<=8){
 	player.UITM[slot]=BogasArmor;}
-	git(12,5);printf("Kervandan Boğa Kılıcı ve Boğa Zırhı buldun.");Sleep(60);
-	git(13,5);printf("Dinlenmek için şehire dönmeye karar verdiniz.");Sleep(60);
+	git(12,5);printf("Kervandan BoÃ°a KÃ½lÃ½cÃ½ ve BoÃ°a ZÃ½rhÃ½ buldun.");Sleep(60);
+	git(13,5);printf("Dinlenmek iÃ§in Ã¾ehire dÃ¶nmeye karar verdiniz.");Sleep(60);
 {	durum=T;
-	char menu1[]="Şehire dön";
+	char menu1[]="Ãehire dÃ¶n";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2425,11 +2425,11 @@ void Chapter3(){
 	player.Location=C3;
 	playerOnDeath=player;
 	Temizle();
-	git(12,5);printf("En sonunda boğa sığınağına saldırmak üzere şehirden ayrıldınız.");Sleep(60);
-	git(13,5);printf("Bir mağaranın önünde durdunuz. Boğa'ların Mağaranın içine girdiğini");Sleep(60);
-	git(14,5);printf("farkettiniz. Mağaranın başında iki tane nöbetçi olduğunu gördünüz.");Sleep(60);
+	git(12,5);printf("En sonunda boÃ°a sÃ½Ã°Ã½naÃ°Ã½na saldÃ½rmak Ã¼zere Ã¾ehirden ayrÃ½ldÃ½nÃ½z.");Sleep(60);
+	git(13,5);printf("Bir maÃ°aranÃ½n Ã¶nÃ¼nde durdunuz. BoÃ°a'larÃ½n MaÃ°aranÃ½n iÃ§ine girdiÃ°ini");Sleep(60);
+	git(14,5);printf("farkettiniz. MaÃ°aranÃ½n baÃ¾Ã½nda iki tane nÃ¶betÃ§i olduÃ°unu gÃ¶rdÃ¼nÃ¼z.");Sleep(60);
 	{	durum=T;
-	char menu1[]="NöbetçilereSaldır";
+	char menu1[]="NÃ¶betÃ§ilereSaldÃ½r";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2443,13 +2443,13 @@ void Chapter3(){
 		}
 	}
 	Temizle();
-	struct Enemy a; char enemy[13]="Nöbetci Boğa";
+	struct Enemy a; char enemy[13]="NÃ¶betci BoÃ°a";
 	Savas(a,enemy);
 	LvlUP();
 	Temizle();
-	git(12,5);printf("Öteki nöbetciyi Elfler halleti.");Sleep(60);
+	git(12,5);printf("Ã–teki nÃ¶betciyi Elfler halleti.");Sleep(60);
 	{	durum=T;
-	char menu1[]="Mağaraya Gir";
+	char menu1[]="MaÃ°araya Gir";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2462,15 +2462,15 @@ void Chapter3(){
 		Sleep(60);	
 		}
 	}
-	git(13,5);printf("Meşaleler ile aydınlatılmış bir koridorda yürüyorsunuz.");Sleep(60);
-	git(14,5);printf("İlerlerken tuzağa yakalınıyorsun. Ayağına büyük bir taş düşüyor.");Sleep(60);
+	git(13,5);printf("MeÃ¾aleler ile aydÃ½nlatÃ½lmÃ½Ã¾ bir koridorda yÃ¼rÃ¼yorsunuz.");Sleep(60);
+	git(14,5);printf("Ãlerlerken tuzaÃ°a yakalÃ½nÃ½yorsun. AyaÃ°Ã½na bÃ¼yÃ¼k bir taÃ¾ dÃ¼Ã¾Ã¼yor.");Sleep(60);
 	player.CAN-=5;
 	Death();
-	git(15,5);printf("5 canın azaldı. Bundan sonra daha dikkatli ilerlemeye başladın.");Sleep(60);
+	git(15,5);printf("5 canÃ½n azaldÃ½. Bundan sonra daha dikkatli ilerlemeye baÃ¾ladÃ½n.");Sleep(60);
 	getch();
 	Temizle();
-	git(12,5);printf("Bir zindan buldunuz. Zindanın başında bir nöbetçi gördünüz. Tam nöbetçi");Sleep(60);
-	git(13,5);printf("sizi fark ettiği an kafasına ok yedi ve yere yığıldı.");Sleep(60);
+	git(12,5);printf("Bir zindan buldunuz. ZindanÃ½n baÃ¾Ã½nda bir nÃ¶betÃ§i gÃ¶rdÃ¼nÃ¼z. Tam nÃ¶betÃ§i");Sleep(60);
+	git(13,5);printf("sizi fark ettiÃ°i an kafasÃ½na ok yedi ve yere yÃ½Ã°Ã½ldÃ½.");Sleep(60);
 	{	durum=T;
 	char menu1[]="Zindana Gir";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
@@ -2486,12 +2486,12 @@ void Chapter3(){
 		}
 	}
 	Temizle();
-	git(12,5);printf("Hücreleri tek tek aramaya başladın. Fakat aileni bulamadın.");Sleep(60);
-	git(13,5);printf("Zindandan çıktınız. Koridorda ilerlemeye devam ettiniz.");Sleep(60);
-	git(14,5);printf("Sığınağın yemekhanesini buldunuz. İçeridekiler sizi fark etmedi.");Sleep(60);	
-	git(15,5);printf("Elflerin lideri: İçeride çok fazla Boğa var. Plan yapmalıyız.");Sleep(60);
-	git(17,5);printf("Plan yapmalıyız.");Sleep(60);
-	git(18,5);printf("Bekleyecek vakit yok hemen saldırmalıyız.");Sleep(60);	
+	git(12,5);printf("HÃ¼creleri tek tek aramaya baÃ¾ladÃ½n. Fakat aileni bulamadÃ½n.");Sleep(60);
+	git(13,5);printf("Zindandan Ã§Ã½ktÃ½nÃ½z. Koridorda ilerlemeye devam ettiniz.");Sleep(60);
+	git(14,5);printf("SÃ½Ã°Ã½naÃ°Ã½n yemekhanesini buldunuz. ÃÃ§eridekiler sizi fark etmedi.");Sleep(60);	
+	git(15,5);printf("Elflerin lideri: ÃÃ§eride Ã§ok fazla BoÃ°a var. Plan yapmalÃ½yÃ½z.");Sleep(60);
+	git(17,5);printf("Plan yapmalÃ½yÃ½z.");Sleep(60);
+	git(18,5);printf("Bekleyecek vakit yok hemen saldÃ½rmalÃ½yÃ½z.");Sleep(60);	
 	short secim=1; durum=T;
 	while(durum){
 		if(kbhit()){
@@ -2512,32 +2512,32 @@ void Chapter3(){
 				else if(tus==13){
 					if(secim==1){//plan
 						durum=F;
-						git(16,5);printf("Plan yapmalıyız.");Sleep(60);
-						git(17,4);printf(" İçeridekileri zehirlemeye karar verdiniz.");Sleep(60);
-						git(18,5);printf("Aşçı fark etmeden çorba kazanının içine zehir attınız.");Sleep(60);
-						git(19,5);printf("Boğalar yemek yedikten bir süre sonra içerideki herkes bayıldı.");Sleep(60);
+						git(16,5);printf("Plan yapmalÃ½yÃ½z.");Sleep(60);
+						git(17,4);printf(" ÃÃ§eridekileri zehirlemeye karar verdiniz.");Sleep(60);
+						git(18,5);printf("AÃ¾Ã§Ã½ fark etmeden Ã§orba kazanÃ½nÃ½n iÃ§ine zehir attÃ½nÃ½z.");Sleep(60);
+						git(19,5);printf("BoÃ°alar yemek yedikten bir sÃ¼re sonra iÃ§erideki herkes bayÃ½ldÃ½.");Sleep(60);
 						getch();
 					}
 					else if(secim==2){//saldiri
 						durum=F;
-						git(16,5);printf("Bekleyecek vakit yok hemen saldırmalıyız.  ");Sleep(60);
-						git(17,5);printf("Saldırmaya karar verdiniz.  ");Sleep(60);
+						git(16,5);printf("Bekleyecek vakit yok hemen saldÃ½rmalÃ½yÃ½z.  ");Sleep(60);
+						git(17,5);printf("SaldÃ½rmaya karar verdiniz.  ");Sleep(60);
 						git(18,4);printf(" Elflerin lideri sana bir iksir verdi.         ");Sleep(60);
 						player.MCAN+=10;
 						player.CAN=player.MCAN;
 						player.ATK+=2;
 						player.DEF+=2;
-						git(19,4);printf(" İksiri içince kendini daha cesur hissettin. Yemekhanenin kapısını");Sleep(60);
-						git(20,5);printf("açtın, bağırarak içeri girdin ve önüne gelene saldırmaya başladın.");Sleep(60);
+						git(19,4);printf(" Ãksiri iÃ§ince kendini daha cesur hissettin. Yemekhanenin kapÃ½sÃ½nÃ½");Sleep(60);
+						git(20,5);printf("aÃ§tÃ½n, baÃ°Ã½rarak iÃ§eri girdin ve Ã¶nÃ¼ne gelene saldÃ½rmaya baÃ¾ladÃ½n.");Sleep(60);
 						getch();
 						Temizle();
-						strcpy(enemy,"Sinirli Boğa");
+						strcpy(enemy,"Sinirli BoÃ°a");
 						Savas(a,enemy);
 						Temizle();
-						strcpy(enemy,"Aşcı Boğa");
+						strcpy(enemy,"AÃ¾cÃ½ BoÃ°a");
 						Savas(a,enemy);
 						Temizle();
-						strcpy(enemy,"Aç Boğa");
+						strcpy(enemy,"AÃ§ BoÃ°a");
 						Savas(a,enemy);
 						Temizle();
 					}
@@ -2550,11 +2550,11 @@ void Chapter3(){
 		}
 	Temizle();
 	git(12,5);printf("Herkesi hallettikten sonra ilerlemeye devam ettiniz.");Sleep(60);
-	git(13,5);printf("Sığınağın erzak odasını buldunuz. İçeride zırhlı bir");Sleep(60);
-	git(14,5);printf("boğa gördünüz. Zırhtan zor yürüyen Boğa sana baktı ve");Sleep(60);
-	git(15,5);printf("Tank Boğa: Seni düelloya davet ediyorum.");Sleep(60);
+	git(13,5);printf("SÃ½Ã°Ã½naÃ°Ã½n erzak odasÃ½nÃ½ buldunuz. ÃÃ§eride zÃ½rhlÃ½ bir");Sleep(60);
+	git(14,5);printf("boÃ°a gÃ¶rdÃ¼nÃ¼z. ZÃ½rhtan zor yÃ¼rÃ¼yen BoÃ°a sana baktÃ½ ve");Sleep(60);
+	git(15,5);printf("Tank BoÃ°a: Seni dÃ¼elloya davet ediyorum.");Sleep(60);
 	{	durum=T;
-	char menu1[]="Düello yap";
+	char menu1[]="DÃ¼ello yap";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2568,7 +2568,7 @@ void Chapter3(){
 		}
 	}
 	struct Enemy tank;
-	strcpy(tank.AD,"Tank Boğa");
+	strcpy(tank.AD,"Tank BoÃ°a");
 	tank.ATK=2;
 	tank.CAN=50;
 	tank.DEF=20;
@@ -2577,11 +2577,11 @@ void Chapter3(){
 	Temizle();
 	LvlUP();
 	Temizle();
-	git(12,5);printf("İlerlemeye devam ettiniz. Koridorun sonuna geldiniz.");Sleep(60);
-	git(13,5);printf("Aileni bulamadın. Umutsuzluğa kapılıp duvara vurdun.");Sleep(60);
-	git(14,5);printf("Birden gizli bir geçit açıldı.");Sleep(60);
+	git(12,5);printf("Ãlerlemeye devam ettiniz. Koridorun sonuna geldiniz.");Sleep(60);
+	git(13,5);printf("Aileni bulamadÃ½n. UmutsuzluÃ°a kapÃ½lÃ½p duvara vurdun.");Sleep(60);
+	git(14,5);printf("Birden gizli bir geÃ§it aÃ§Ã½ldÃ½.");Sleep(60);
 	{	durum=T;
-	char menu1[]="Geçite Gir";
+	char menu1[]="GeÃ§ite Gir";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2595,11 +2595,11 @@ void Chapter3(){
 		}
 	}
 	Temizle();
-	git(12,5);printf("İlerlerken buranın bir zindan olduğunu anladın.");Sleep(60);
-	git(13,5);printf("Zindanın sonunda Boğaların Başını gördün. Sana baktı ve");Sleep(60);
-	git(14,5);printf("Boğaların Başı: Sen bütün planlarımı mahvettin. Bunun bedelini ödeyeceksin");Sleep(60);
+	git(12,5);printf("Ãlerlerken buranÃ½n bir zindan olduÃ°unu anladÃ½n.");Sleep(60);
+	git(13,5);printf("ZindanÃ½n sonunda BoÃ°alarÃ½n BaÃ¾Ã½nÃ½ gÃ¶rdÃ¼n. Sana baktÃ½ ve");Sleep(60);
+	git(14,5);printf("BoÃ°alarÃ½n BaÃ¾Ã½: Sen bÃ¼tÃ¼n planlarÃ½mÃ½ mahvettin. Bunun bedelini Ã¶deyeceksin");Sleep(60);
 	{	durum=T;
-	char menu1[]="Saldır";
+	char menu1[]="SaldÃ½r";
 	YaziYaz(19,(kolon-4-strlen(menu1))/2,menu1,strlen(menu1));
 		while(durum){
 			if(kbhit()){
@@ -2614,14 +2614,14 @@ void Chapter3(){
 	}
 	Temizle();
 	struct Enemy lider;
-	strcpy(lider.AD,"Boğaların Başı");
+	strcpy(lider.AD,"BoÃ°alarÃ½n BaÃ¾Ã½");
 	lider.ATK=15;
 	lider.CAN=40;
 	lider.DEF=10;
 	SavasMenu(lider);
-	git(12,5);printf("Boğaların Başını öldürdükten sonra aileni aramaya başladın");Sleep(60);
-	git(13,5);printf("Biraz ilerledikten sonra aileni buldun. Sonunda aileni kurtarmıştın.");Sleep(60);
-	git(14,5);printf("Beraber şehire döndünüz.");Sleep(60);
+	git(12,5);printf("BoÃ°alarÃ½n BaÃ¾Ã½nÃ½ Ã¶ldÃ¼rdÃ¼kten sonra aileni aramaya baÃ¾ladÃ½n");Sleep(60);
+	git(13,5);printf("Biraz ilerledikten sonra aileni buldun. Sonunda aileni kurtarmÃ½Ã¾tÃ½n.");Sleep(60);
+	git(14,5);printf("Beraber Ã¾ehire dÃ¶ndÃ¼nÃ¼z.");Sleep(60);
 	Temizle();
 	sonMenu();
 }
